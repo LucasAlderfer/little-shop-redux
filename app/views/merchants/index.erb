@@ -1,0 +1,36 @@
+<html>
+<head>
+  <title>Little Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa|Didact+Gothic|Monoton" rel="stylesheet">
+</head>
+<body>
+  <div class="header">
+    <header>
+      <div class="navcontainer">
+        <nav class="fixednav">
+          <div class="leftnav"><a href="#">LittleSHOP</a></div>
+          <div class="rightnav"><a href="#" class="hvr-pop">Merchants</a></div>
+          <div class="rightnav"><a href="#" class="hvr-pop">Items</a></div>
+          <div class="rightnav"><a href="#" class="hvr-pop">Invoices</a></div>
+        </nav>
+      </div>
+    </header>
+  </div>
+  <section>
+    <h2>MERCHANTS</h2>
+    <button class="create_merchant_button">create a new merchant</button>
+  </section>
+  <table class="merchants_table">
+    <% @merchants.each do |merchant| %>
+    <tr>
+      <td><%= merchant.name %></td>
+      <td><button class="edit_button">edit</button></td>
+      <td><button class="delete_button">delete</button></td>
+    </tr>
+    <% end %>
+  </table>
+</body>
+</html>
