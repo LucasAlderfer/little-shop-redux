@@ -17,5 +17,21 @@ RSpec.describe Merchant do
       merchant = Merchant.new(id: 123, name: "Shopin1901", created_at: 2012-11-10)
     end
   end
+  describe 'CRUD functionality' do
+    it 'creates a merchant' do
+      Merchant.create(id: 123, updated_at: 2012-12-10, created_at: 2012-11-10)
+
+      expect()
+    end
+    it 'finds a merchant' do
+
+    end
+    it 'updated a merchant' do
+
+    end
+    it 'deletes a merchant' do
+
+    end
+  end
 end
 # 12334105,Shopin1901,2010-12-10,2011-12-04
