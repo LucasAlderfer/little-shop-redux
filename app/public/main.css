@@ -1,0 +1,198 @@
+body {
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+.fixednav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 6em;
+  background-color: #6A959D;
+}
+
+.leftnav {
+  font-family: 'Comfortaa', cursive;
+  font-weight: 900;
+  font-size: 2em;
+  flex-grow: 1;
+}
+
+.leftnav a {
+  color: #FFD3AA;
+  text-decoration: none;
+}
+
+.rightnav a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.6em;
+}
+
+@-webkit-keyframes hvr-pop {
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+@keyframes hvr-pop {
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+
+.hvr-pop {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.hvr-pop:hover, .hvr-pop:focus, .hvr-pop:active {
+  -webkit-animation-name: hvr-pop;
+  animation-name: hvr-pop;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+a {
+  padding: 1em;
+  text-decoration: none;
+}
+
+a:first-child {
+  margin-right: auto;
+}
+
+section {
+  border-bottom: 2px solid #6A959D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
+}
+
+.create_merchant_button {
+  display: inline-block;
+  position: relative;
+  padding: 12px 16px;
+  top: 0;
+  font-size: 1.2em;
+  border-radius: 4px;
+  border-bottom: 1px solid rgba( 28, 101, 125, 0.5 );
+  background: #FFD3AA;
+  color: #fff;
+  box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.1 );
+  margin: .5em;
+
+  -webkit-transform: translateZ(0);
+     -moz-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+          transform: translateZ(0);
+
+  -webkit-transition: all 0.2s ease;
+     -moz-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+
+button:hover {
+  top: -10px;
+  box-shadow: 0px 10px 10px rgba( 15, 1, 60, 0.2 );
+
+  -webkit-transform: rotateX(20deg);
+     -moz-transform: rotateX(20deg);
+      -ms-transform: rotateX(20deg);
+          transform: rotateX(20deg);
+}
+
+button:active {
+  top: 0px;
+  box-shadow: 0px 0px 0px rgba( 15, 1, 60, 0.0 );
+  background: rgba( 20, 224, 133, 1 );
+}
+
+h2 {
+  font-weight: 900;
+}
+
+.merchants_table {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  padding-left: 10%;
+}
+
+.merchants_table button {
+  display: inline-block;
+  position: relative;
+  padding: 5px 6px;
+  top: 0;
+  font-size: 1em;
+  border-radius: 2px;
+  border-bottom: 1px solid rgba( 28, 101, 125, 0.5 );
+  background: #FFD3AA;
+  color: #fff;
+  box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.1 );
+  margin: .5em;
+
+  -webkit-transform: translateZ(0);
+     -moz-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+          transform: translateZ(0);
+
+  -webkit-transition: all 0.2s ease;
+     -moz-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+
+.merchants_table button:hover {
+  top: -10px;
+  box-shadow: 0px 10px 10px rgba( 15, 1, 60, 0.2 );
+
+  -webkit-transform: rotateX(20deg);
+     -moz-transform: rotateX(20deg);
+      -ms-transform: rotateX(20deg);
+          transform: rotateX(20deg);
+}
+
+.merchants_table button:active {
+  top: 0px;
+  box-shadow: 0px 0px 0px rgba( 15, 1, 60, 0.0 );
+  background: rgba( 20, 224, 133, 1 );
+}
+
+.merchants_table tr td:first-child {
+  border-left: 1px solid transparent;
+  transition-timing-function: linear;
+}
+
+.merchants_table tr td:first-child:hover {
+  border-left: 2px solid #6A959D;
+}
+
+td {
+  padding: 5px;
+}
