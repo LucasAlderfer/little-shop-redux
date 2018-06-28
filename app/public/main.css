@@ -229,7 +229,7 @@ input[type=submit] {
   cursor: pointer;
   outline: 0;
   -webkit-appearance: none;
-  color: white;
+  color: blue; 
   font-family: 'Didact Gothic', sans-serif;
   font-size: 1em;
 }
