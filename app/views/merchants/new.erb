@@ -24,14 +24,13 @@
   </section>
   <main class='new_merchant_field'>
     <form action='/merchants' method='post'>
-      name<br>
-      <input type='text' name='merchant[name]' value='Name'>
-      <input type='submit' value='Submit'>
+      <label for="fname">Name</label>
+      <input type='text' name='merchant[name]' placeholder="Merchant Name">
+      <div class="single_merchant_button">
+        <button class="create_merchant_button"><input type='submit' value='create'></button>
+        <button class="create_merchant_button">cancel</button>
+      </div>
     </form>
   </main>
-  <div class="single_merchant_button">
-    <button class="create_merchant_button">cancel</button>
-    <button class="create_merchant_button">create merchant</button>
-  </div>
 </body>
 </html>

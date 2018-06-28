@@ -18,18 +18,18 @@ RSpec.describe Merchant do
     end
   end
   describe 'CRUD functionality' do
-    it 'creates a merchant' do
-      Merchant.create(id: 123, updated_at: 2012-12-10, created_at: 2012-11-10)
+    xit 'creates a merchant' do
+      Merchants.create(id: 123, updated_at: 2012-12-10, created_at: 2012-11-10)
 
       expect()
     end
-    it 'finds a merchant' do
+    xit 'finds a merchant' do
 
     end
-    it 'updated a merchant' do
+    xit 'updated a merchant' do
 
     end
-    it 'deletes a merchant' do
+    xit 'deletes a merchant' do
 
     end
   end
