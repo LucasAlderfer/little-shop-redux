@@ -30,7 +30,6 @@ class LittleShopApp < Sinatra::Base
   end
 
   delete '/merchants/:id' do
-    require 'pry';binding.pry
     Merchant.where(id: params[:id]).destroy_all
     redirect '/merchants'
   end
