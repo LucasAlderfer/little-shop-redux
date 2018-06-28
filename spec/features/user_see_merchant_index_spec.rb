@@ -25,5 +25,12 @@ RSpec.describe 'a visitor' do
         expect(page).to_not have_content('Shopin1901')
       end
     end
+    it 'should show a create merchant button that when clicked redirects to create new merchant page' do
+      visit '/merchants'
+
+      click_link('Create New Merchant')
+
+      expect(current_path).to eq('/merchants/new')
+    end
   end
 end
