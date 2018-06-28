@@ -20,17 +20,18 @@
     </header>
   </div>
   <section>
-    <h2>MERCHANTS</h2>
-    <button class="create_merchant_button">create a new merchant</button>
+    <h2>Create New Merchant</h2>
   </section>
-  <table class="merchants_table">
-    <% @merchants.each do |merchant| %>
-    <tr>
-      <td><a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a></td>
-      <td><button class="edit_button">edit</button></td>
-      <td><button class="delete_button">delete</button></td>
-    </tr>
-    <% end %>
-  </table>
+  <main class='new_merchant_field'>
+    <form action='/merchants' method='post'>
+      name<br>
+      <input type='text' name='merchant[name]' value='Name'>
+      <input type='submit' value='Submit'>
+    </form>
+  </main>
+  <div class="single_merchant_button">
+    <button class="create_merchant_button">cancel</button>
+    <button class="create_merchant_button">create merchant</button>
+  </div>
 </body>
 </html>

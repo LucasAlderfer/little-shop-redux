@@ -81,6 +81,24 @@ section {
   flex-direction: column;
 }
 
+.single_merchant_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.new_merchant_field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.new_merchant_field form {
+  padding: 1em;
+}
+
 button {
   background: transparent;
   border: 0;
