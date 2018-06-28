@@ -22,8 +22,11 @@
   <section>
     <h2><%= @merchant.name %></h2>
     <div class="single_merchant_button">
-      <button class="create_merchant_button">edit</button>
-      <button class="create_merchant_button">delete</button>
+      <a href="/merchants/<%= @merchant.id %>/edit" >edit</a>
+      <form action="/merchants/<%= @merchant.id %>" method='POST'>
+        <input type='hidden' name='_method' value='DELETE'>
+        <input type='submit' value='delete' />
+      </form>
     </div>
   </section>
 </body>
