@@ -3,8 +3,8 @@
   <title>Little Shop</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="/main.css">
-  <link href="https://fonts.googleapis.com/css?family=Comfortaa|Didact+Gothic|Monoton" rel="stylesheet">
+  <!-- <link rel="stylesheet" type="text/css" href="/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa|Didact+Gothic|Monoton" rel="stylesheet"> -->
 </head>
 <body>
   <div class="header">
@@ -28,7 +28,12 @@
     <tr>
       <td><a href="/merchants/<%= merchant.id %>" class="hvr-pop"><%= merchant.name %></a></td>
       <td><a href="/merchants/<%= merchant.id %>/edit" >edit</a></td>
-      <td><button class="delete_button">delete</button></td>
+      <td>
+        <form action="/merchants/<%= merchant.id %>" method='POST'>
+          <input type='hidden' name='_method' value='DELETE'>
+          <input type='submit' value='delete' />
+        </form>
+      </td>
     </tr>
     <% end %>
   </table>
