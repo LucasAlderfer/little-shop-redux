@@ -5,6 +5,7 @@ RSpec.describe Merchant do
     it 'is invalid without a name' do
       merchant = Merchant.new(updated_at: 2012-12-10, created_at: 2012-11-10)
 
+
       expect(merchant).to_not be_valid
     end
     it 'is invalid without an id' do
