@@ -10,12 +10,13 @@ class LittleShopApp < Sinatra::Base
   end
 
   post '/merchants' do
-    Merchant.create(params[:merchant])
-    redirect "/merchants/#{params[:merchant][:id]}"
+    current_day = Time.now.strftime("%Y-%m-%d")
+    Merchant.create(id: Merchant.last.id + 1, name: params[:merchant][:name], created_at: current_day, updated_at: current_day)
+    redirect "/merchants/#{Merchant.last.id}"
   end
 
   get '/merchants/:id' do
-    @merchant = Merchant.find_by_id(params[:id])
+    @merchant = Merchant.find(params[:id])
     erb :'merchants/show'
   end
 
