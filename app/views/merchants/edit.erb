@@ -23,13 +23,13 @@
     <h2>Edit <%= @merchant.name %></h2>
   </section>
   <main class='new_merchant_field'>
-    <form action='/merchants' method='post'>
+    <form action="/merchants/<%= @merchant.id %>" method='POST'>
     <input type='hidden' name='_method' value='PUT' />
       <label for="fname">Name</label>
-      <input type='text' name='merchant[name]' placeholder=<%= @merchant.name %>>
+      <input type='text' name='merchant[name]' placeholder=<%= @merchant.name %> value='update merchant'>
+      <input type='submit' value='update merchant' />
       <div class="single_merchant_button">
-        <button class="create_merchant_button"><input type='submit' value='update'></button>
-        <button class="create_merchant_button">cancel</button>
+        <a href="/merchants/<%= @merchant.id %>">cancel</a>
       </div>
     </form>
   </main>
