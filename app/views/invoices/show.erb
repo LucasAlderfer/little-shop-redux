@@ -1,0 +1,34 @@
+<html>
+<head>
+  <title>Little Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa|Didact+Gothic|Monoton" rel="stylesheet">
+</head>
+<body>
+  <div class="header">
+    <header>
+      <div class="navcontainer">
+        <nav class="fixednav">
+          <div class="leftnav"><a href="#">LittleSHOP</a></div>
+          <div class="rightnav"><a href="#" class="hvr-pop">Merchants</a></div>
+          <div class="rightnav"><a href="#" class="hvr-pop">Items</a></div>
+          <div class="rightnav"><a href="#" class="hvr-pop">Invoices</a></div>
+        </nav>
+      </div>
+    </header>
+  </div>
+  <section>
+    <h2>Invoice: <%= @invoice.id %> - <%= @invoice.status.capitalize %></h2>
+    <div class="single_invoice_button">
+      <a href="/invoices/<%= @invoice.id %>/edit" class="create_link" >edit</a>
+      <form action="/invoices/<%= @invoice.id %>" method='POST' class="form_reset">
+        <input type='hidden' name='_method' value='DELETE'>
+        <input type='submit' value='delete' class="create_link"/>
+      </form>
+    </div>
+  </section>
+  
+</body>
+</html>
