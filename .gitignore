@@ -1,2 +1,5 @@
 db/csv/*.csv
 Gemfile.lock
+tmp
+/coverage
+textdump.rb

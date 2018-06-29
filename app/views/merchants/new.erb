@@ -1,0 +1,36 @@
+<html>
+<head>
+  <title>Little Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa|Didact+Gothic|Monoton" rel="stylesheet">
+</head>
+<body>
+  <div class="header">
+    <header>
+      <div class="navcontainer">
+        <nav class="fixednav">
+          <div class="leftnav"><a href="#">LittleSHOP</a></div>
+          <div class="rightnav"><a href="#" class="hvr-pop">Merchants</a></div>
+          <div class="rightnav"><a href="#" class="hvr-pop">Items</a></div>
+          <div class="rightnav"><a href="#" class="hvr-pop">Invoices</a></div>
+        </nav>
+      </div>
+    </header>
+  </div>
+  <section>
+    <h2>Create New Merchant</h2>
+  </section>
+  <main class='new_merchant_field'>
+    <form action='/merchants' method='post'>
+      <label for="fname">Name</label>
+      <input type='text' name='merchant[name]' placeholder="Merchant Name">
+      <%# <div class="single_merchant_button"> %>
+        <input type='submit' value='create'/>
+        <a href='/merchants'>cancel</a>
+      <%# </div> %>
+    </form>
+  </main>
+</body>
+</html>
