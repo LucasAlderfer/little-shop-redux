@@ -34,4 +34,39 @@ class LittleShopApp < Sinatra::Base
     Merchant.where(id: params[:id]).destroy_all
     redirect '/merchants'
   end
+
+  get '/items' do
+    @items = Item.all
+    erb :'items/index'
+  end
+
+  get '/items/new' do
+    erb :'items/new'
+  end
+
+  post '/items' do
+    current_day = Time.now.strftime("%Y-%m-%d")
+    Item.create(id: Item.last.id + 1, name: params[:item][:name], description: params[:item][:description], unit_price: params[:item][:description], image: params[:item][:image], merchant_id: params[:item][:merchant_id], created_at: current_day, updated_at: current_day)
+    redirect "/merchants/#{Item.last.id}"
+  end
+
+  get '/items/:id' do
+    @item = Item.find(params[:id])
+    erb :'items/show'
+  end
+
+  get '/items/:id/edit' do
+    @item = Merchant.find_by_id(params[:id])
+    erb :'items/edit'
+  end
+
+  put '/items/:id' do
+    Item.update(params[:id].to_i, params[:item])
+    redirect "/items/#{params[:id]}"
+  end
+
+  delete '/items/:id' do
+    Item.where(id: params[:id]).destroy_all
+    redirect '/items'
+  end
 end
