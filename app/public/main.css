@@ -1,10 +1,26 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
   font-family: 'Didact Gothic', sans-serif;
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
 }
 
 a {
   text-decoration: none;
   color: black;
+  padding: 1em;
 }
 
 .fixednav {
@@ -69,11 +85,6 @@ a {
   animation-iteration-count: 1;
 }
 
-a {
-  padding: 1em;
-  text-decoration: none;
-}
-
 a:first-child {
   margin-right: auto;
 }
@@ -82,7 +93,6 @@ section {
   border-bottom: 2px solid #6A959D;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
 }
 
@@ -104,16 +114,7 @@ section {
   padding: 1em;
 }
 
-button {
-  background: transparent;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-  outline: 0;
-  -webkit-appearance: none;
-}
-
-.create_merchant_button {
+.create_link {
   display: inline-block;
   position: relative;
   padding: 12px 16px;
@@ -137,7 +138,13 @@ button {
           transition: all 0.2s ease;
 }
 
-button:hover {
+.create_link a {
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+.create_link:hover {
   top: -10px;
   box-shadow: 0px 10px 10px rgba( 15, 1, 60, 0.2 );
 
@@ -147,7 +154,7 @@ button:hover {
           transform: rotateX(20deg);
 }
 
-button:active {
+.create_link:active {
   top: 0px;
   box-shadow: 0px 0px 0px rgba( 15, 1, 60, 0.0 );
   background: silver;
@@ -167,17 +174,9 @@ h2 {
   padding-left: 10%;
 }
 
-.merchants_table button {
-  display: inline-block;
-  position: relative;
+.merchants_table .create_link {
   padding: 5px 6px;
-  top: 0;
   font-size: 1em;
-  border-radius: 2px;
-  border-bottom: 1px solid rgba( 28, 101, 125, 0.5 );
-  background: #FFD3AA;
-  color: #fff;
-  box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.1 );
   margin: .5em;
 
   -webkit-transform: translateZ(0);
@@ -191,7 +190,7 @@ h2 {
           transition: all 0.2s ease;
 }
 
-.merchants_table button:hover {
+.merchants_table input[type=submit]:hover {
   top: -10px;
   box-shadow: 0px 10px 10px rgba( 15, 1, 60, 0.2 );
 
@@ -201,7 +200,7 @@ h2 {
           transform: rotateX(20deg);
 }
 
-.merchants_table button:active {
+.merchants_table input[type=submit]:active {
   top: 0px;
   box-shadow: 0px 0px 0px rgba( 15, 1, 60, 0.0 );
   background: silver;
@@ -215,23 +214,6 @@ h2 {
 .merchants_table tr td:first-child:hover {
   background: linear-gradient(#FFD3AA, #FFD3AA) left /2% 3px no-repeat,
     white
-  /* border-left: 2px solid #6A959D; */
-}
-
-td {
-  padding: 5px;
-}
-
-input[type=submit] {
-  background: transparent;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-  outline: 0;
-  -webkit-appearance: none;
-  color: blue; 
-  font-family: 'Didact Gothic', sans-serif;
-  font-size: 1em;
 }
 
 form label {
@@ -245,4 +227,18 @@ input[type=text], select {
     margin: 8px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
+
+.form_reset {
+  margin-bottom: 0;
 }
