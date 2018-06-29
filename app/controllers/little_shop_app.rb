@@ -39,4 +39,9 @@ class LittleShopApp < Sinatra::Base
     @invoices = Invoice.all
     erb :'invoices/index'
   end
+
+  delete '/invoices/:id' do
+    Invoice.where(id: params[:id]).destroy_all
+    redirect '/invoices'
+  end
 end

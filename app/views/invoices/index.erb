@@ -22,7 +22,7 @@
   <table class="invoices_table">
     <% @invoices.each do |invoice| %>
     <tr>
-      <td><a href="/invoices/<%= invoice.id %>" class="hvr-pop"><%= invoice.id %></a></td>
+      <td><a href="/invoices/<%= invoice.id %>" class="hvr-pop" id="name-invoice-id"><%= invoice.id %></a></td>
       <td><a href="/invoices/<%= invoice.id %>/edit" >edit</a></td>
       <td>
         <form action="/invoices/<%= invoice.id %>" method='POST'>
