@@ -52,7 +52,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/invoices/:id/edit' do
-    @invoice = Invoice.find(params[:id])
+    @invoice = Invoice.where(id: params[:id]).includes(:merchant).first
     erb :'invoices/edit'
   end
 
