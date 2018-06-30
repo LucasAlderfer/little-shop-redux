@@ -26,7 +26,8 @@ RSpec.describe 'a visitor' do
       end
     end
     it 'should redirect to the invoice show page when an invoice id is clicked on' do
-      Invoice.create(id: 1050, customer_id: 87654321, merchant_id: 12348765, status: 'pending', updated_at: '2012-12-10', created_at: '2012-11-10')
+      merchant = Merchant.create(id: 12348765, name:'Shopin1901', created_at: '2017-12-12', updated_at: '2018-02-05')
+      merchant.invoices.create(id: 1050, customer_id: 87654321, status: 'pending', updated_at: '2012-12-10', created_at: '2012-11-10')
       visit '/invoices'
 
       click_on('name-invoice-id')
