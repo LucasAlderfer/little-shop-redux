@@ -23,12 +23,15 @@
     <h2>Invoice: <%= @invoice.id %> - <%= @invoice.status.capitalize %></h2>
   </section>
   <main>
-    <button class="dropbtn"><%= @invoice.status %></button>
-      <div class="dropdown-content">
-        <a href="#">Pending</a>
-        <a href="#">Shipped</a>
-        <a href="#">Returned</a>
-      </div>
+  <nav id="primary_nav_wrap">
+  <ul>
+    <li><a href="#">Status</a>
+      <ul>
+        <li><a href="#">Pending</a></li>
+        <li><a href="#">Shipped</a></a></li>
+        <li><a href="#">Returned</a></li>
+      </ul>
+    </li>
   </main>
 </body>
 </html>

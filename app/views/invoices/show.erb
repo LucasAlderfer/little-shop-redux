@@ -21,7 +21,7 @@
   </div>
   <section>
     <h2>Invoice: <%= @invoice.id %> - <%= @invoice.status.capitalize %></h2>
-    <div class="single_invoice_button">
+    <div class="single_merchant_button">
       <a href="/invoices/<%= @invoice.id %>/edit" class="create_link" >edit</a>
       <form action="/invoices/<%= @invoice.id %>" method='POST' class="form_reset">
         <input type='hidden' name='_method' value='DELETE'>
@@ -29,6 +29,5 @@
       </form>
     </div>
   </section>
-  
 </body>
 </html>
