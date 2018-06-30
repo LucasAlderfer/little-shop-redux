@@ -1,0 +1,46 @@
+<html>
+<head>
+  <title>Little Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa|Didact+Gothic|Monoton" rel="stylesheet">
+</head>
+<body>
+  <div class="header">
+    <header>
+      <div class="navcontainer">
+        <nav class="fixednav">
+          <div class="leftnav"><a href="#">LittleSHOP</a></div>
+          <div class="rightnav"><a href="#" class="hvr-pop">Merchants</a></div>
+          <div class="rightnav"><a href="#" class="hvr-pop">Items</a></div>
+          <div class="rightnav"><a href="#" class="hvr-pop">Invoices</a></div>
+        </nav>
+      </div>
+    </header>
+  </div>
+  <section>
+    <h2>Invoice: <%= @invoice.id %> - <%= @invoice.status.capitalize %></h2>
+  </section>
+  <main>
+  <form action="/invoices/<%= @invoice.id %>/edit" method="POST" >
+    <input type='hidden' name='_method' value='PUT' />
+    <label for='Merchant'>Merchant</label>
+    <div align="center">
+      <select name="invoice[status]" id='invoice-merchant-name'>
+        <option value="merchant-name"><%= @invoice.merchant.name %></option>
+      </select>
+    </div>
+    <label for='Status'>Status</label>
+    <div align="center">
+      <select name="invoice[status]" id='invoice-status-dropdown'>
+        <option value="pending">Pending</option>
+        <option value="shipped">Shipped</option>
+        <option value="returned">Returned</option>
+      </select>
+    </div>
+    <input type='submit' value='update invoice status' class='create_link'/>
+    <a href="/invoices" class='create_link'>cancel</a>
+  </form>
+</body>
+</html>
