@@ -1,9 +1,10 @@
 RSpec.describe 'a visitor' do
   context 'visiting /items' do
     it 'should show a list of all the items that when clicked redirects to item/show' do
-      item_1 = Item.create(id: 12345, name: "AnItem", description: 'Good Item', merchant_id: 1, unit_price: 12345, image_url: 'anything', created_at: '2018-06-27', updated_at: '2018-06-28')
+      merchant_1 = Merchant.create(name: "JP", id: 1234, updated_at: "1234-12-12", created_at: "1333-12-12")
+      item_1 = merchant_1.items.create(id: 12345, name: "AnItem", description: 'Good Item', unit_price: 12345, image_url: 'anything', created_at: '2018-06-27', updated_at: '2018-06-28')
       visit '/items'
-      
+
       within('.items_table') do
         expect(page).to have_content(item_1.name)
       end

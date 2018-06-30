@@ -1,15 +1,21 @@
 RSpec.describe 'a visitor' do
   context 'visiting /items/:id' do
     it 'should show the item name' do
-      item_1 = Item.create(id: 12345, name: "AnItem", description: 'Good Item', merchant_id: 1, unit_price: 12345, image_url: 'anything', created_at: '2018-06-27', updated_at: '2018-06-28')
+      merchant_1 = Merchant.create(name: "JP", id: 1234, updated_at: "1234-12-12", created_at: "1333-12-12")
+      item_1 = merchant_1.items.create(id: 12345, name: "AnItem", description: 'Good Item', unit_price: 12345, image_url: 'anything', created_at: '2018-06-27', updated_at: '2018-06-28')
+
       visit '/items/12345'
+
+      save_and_open_page
 
       within('section') do
         expect(page).to have_content(item_1.name)
       end
     end
     it 'should show item description' do
-      item_1 = Item.create(id: 12345, name: "AnItem", description: 'Good Item', merchant_id: 1, unit_price: 12345, image_url: 'anything', created_at: '2018-06-27', updated_at: '2018-06-28')
+      merchant_1 = Merchant.create(name: "JP", id: 1234, updated_at: "1234-12-12", created_at: "1333-12-12")
+      item_1 = merchant_1.items.create(id: 12345, name: "AnItem", description: 'Good Item', unit_price: 12345, image_url: 'anything', created_at: '2018-06-27', updated_at: '2018-06-28')
+
       visit '/items/12345'
 
       within('section') do
@@ -17,7 +23,9 @@ RSpec.describe 'a visitor' do
       end
     end
     it 'should show item unit price' do
-      item_1 = Item.create(id: 12345, name: "AnItem", description: 'Good Item', merchant_id: 1, unit_price: 12345, image_url: 'anything', created_at: '2018-06-27', updated_at: '2018-06-28')
+      merchant_1 = Merchant.create(name: "JP", id: 1234, updated_at: "1234-12-12", created_at: "1333-12-12")
+      item_1 = merchant_1.items.create(id: 12345, name: "AnItem", description: 'Good Item', unit_price: 12345, image_url: 'anything', created_at: '2018-06-27', updated_at: '2018-06-28')
+
       visit '/items/12345'
 
       within('section') do
@@ -25,33 +33,29 @@ RSpec.describe 'a visitor' do
       end
     end
     it 'should show item merchant name' do
-      item_1 = Item.create(id: 12345, name: "AnItem", description: 'Good Item', merchant_id: 1, unit_price: 12345, image_url: 'anything', created_at: '2018-06-27', updated_at: '2018-06-28')
-      merchant = item_1.merchant.create(name:'JP')
-      visit '/items/12345'
-
-      within('section') do
-        expect(page).to have_content(merchant.name)
-      end
-    end
-    it 'should show item image' do
-      item_1 = Item.create(id: 12345, name: "AnItem", description: 'Good Item', merchant_id: 1, unit_price: 12345, image_url: "/Pembroke_Welsh_Corgi_Puppy.jpg", created_at: '2018-06-27', updated_at: '2018-06-28')
+      merchant_1 = Merchant.create(name: "JP", id: 1234, updated_at: "1234-12-12", created_at: "1333-12-12")
+      item_1 = merchant_1.items.create(id: 12345, name: "AnItem", description: 'Good Item', unit_price: 12345, image_url: 'anything', created_at: '2018-06-27', updated_at: '2018-06-28')
 
       visit '/items/12345'
 
       within('section') do
-        expect(page).to have_content('anything')
+        expect(page).to have_content(merchant_1.name)
       end
     end
     it 'should show an edit button that when clicked will redirect to /edit' do
-      item_1 = Item.create(id: 12345, name: "AnItem", description: 'Good Item', merchant_id: 1, unit_price: 12345, image_url: 'anything', created_at: '2018-06-27', updated_at: '2018-06-28')
+      merchant_1 = Merchant.create(name: "JP", id: 1234, updated_at: "1234-12-12", created_at: "1333-12-12")
+      item_1 = merchant_1.items.create(id: 12345, name: "AnItem", description: 'Good Item', unit_price: 12345, image_url: 'anything', created_at: '2018-06-27', updated_at: '2018-06-28')
+
       visit '/items/12345'
 
       click_link('edit')
 
       expect(current_path).to eq('/items/12345/edit')
     end
-    it 'should show a delete button that when clicked will delete the merchant' do
-      item_1 = Item.create(id: 12345, name: "AnItem", description: 'Good Item', merchant_id: 1, unit_price: 12345, image_url: 'anything', created_at: '2018-06-27', updated_at: '2018-06-28')
+    it 'should show a delete button that when clicked will delete the item' do
+      merchant_1 = Merchant.create(name: "JP", id: 1234, updated_at: "1234-12-12", created_at: "1333-12-12")
+      item_1 = merchant_1.items.create(id: 12345, name: "AnItem", description: 'Good Item', unit_price: 12345, image_url: 'anything', created_at: '2018-06-27', updated_at: '2018-06-28')
+
       visit '/items/12345'
 
       click_on('delete')

@@ -51,7 +51,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/items/:id' do
-    @item = Item.find(params[:id])
+    @item = Item.where(id: params[:id]).includes(:merchant).first
     erb :'items/show'
   end
 
