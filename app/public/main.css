@@ -24,6 +24,28 @@ main {
   justify-content: space-evenly;
 }
 
+.single-item-container {
+  display: flex;
+}
+
+.individual-item {
+  width: 85%;
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  width:50%;
+  margin: 0;
+  margin-left: 10%;
+}
+
+.single-item-container article {
+  align-items: left;
+  width: 50%;
+  margin-right: 10%;
+}
+
 a {
   text-decoration: none;
   color: black;
