@@ -15,6 +15,16 @@ ActiveRecord::Schema.define(version: 2018_06_29_053600) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "unit_price"
+    t.integer "merchant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string "image_url"
+  end
+
   create_table "merchants", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at"

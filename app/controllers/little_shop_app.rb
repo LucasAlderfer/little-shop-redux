@@ -46,7 +46,7 @@ class LittleShopApp < Sinatra::Base
 
   post '/items' do
     current_day = Time.now.strftime("%Y-%m-%d")
-    Item.create(id: Item.last.id + 1, name: params[:item][:name], description: params[:item][:description], unit_price: params[:item][:description], image: params[:item][:image], merchant_id: params[:item][:merchant_id], created_at: current_day, updated_at: current_day)
+    Item.create(id: Item.last.id + 1, name: params[:item][:name], description: params[:item][:description], unit_price: params[:item][:description], image_url: params[:item][:image_url], merchant_id: params[:item][:merchant_id], created_at: current_day, updated_at: current_day)
     redirect "/merchants/#{Item.last.id}"
   end
 
@@ -56,7 +56,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/items/:id/edit' do
-    @item = Merchant.find_by_id(params[:id])
+    @item = Item.find_by_id(params[:id])
     erb :'items/edit'
   end
 

@@ -7,6 +7,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :merchant_id
       t.datetime :created_at
       t.datetime :updated_at
+      t.string :image_url
     end
   end
 end
