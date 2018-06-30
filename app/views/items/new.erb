@@ -25,9 +25,9 @@
   <main class='new_item_field'>
     <form action="/items" method='POST'>
       <label for="fmerchant">Merchant</label>
-      <select class="drop-down" name='item[merchant_id]'>
+      <select class="drop-down" name='item[merchant_id]' id="merchant-name-dropdown">
         <% @merchants.each do |merchant| %>
-          <option value="merchant.id"><%= merchant.name %></option>
+          <option value=<%= merchant.id %>><%= merchant.name %></option>
         <% end %>
       </select>
       <label for="fname">Item Name</label>

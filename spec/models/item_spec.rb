@@ -55,4 +55,13 @@ RSpec.describe Item do
       expect(item.merchant_name).to eq('Shopin1901')
     end
   end
+  describe 'class methods' do
+    it '.generate_id' do
+      expect(Item.generate_id).to eq(1)
+
+      item_1 = Item.create(id: Item.generate_id, name: 'AnItem', description: 'Good Item', unit_price: 12345, image_url: 'anything', merchant_id: 123, created_at: '2018-06-27', updated_at: '2018-06-29')
+
+      expect(Item.generate_id).to eq(2)
+    end
+  end
 end

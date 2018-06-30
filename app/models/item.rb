@@ -7,4 +7,12 @@ class Item < ActiveRecord::Base
   def merchant_name
     merchant.name
   end
+
+  def self.generate_id
+    if Item.all.empty?
+      1
+    else
+      Item.last.id + 1
+    end
+  end
 end
