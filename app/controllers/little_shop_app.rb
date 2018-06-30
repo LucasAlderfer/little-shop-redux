@@ -41,6 +41,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/items/new' do
+    @merchants = Merchant.all
     erb :'items/new'
   end
 
@@ -56,11 +57,14 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/items/:id/edit' do
-    @item = Item.find_by_id(params[:id])
+    @item = Item.find(params[:id])
+    @merchants = Merchant.all
     erb :'items/edit'
   end
 
   put '/items/:id' do
+    params[:item][:merchant_id] = params[:item][:merchant_id].to_i
+    params[:item][:unit_price] = params[:item][:unit_price].to_i
     Item.update(params[:id].to_i, params[:item])
     redirect "/items/#{params[:id]}"
   end

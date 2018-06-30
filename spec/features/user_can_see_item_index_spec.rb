@@ -5,10 +5,6 @@ RSpec.describe 'a visitor' do
       item_1 = merchant_1.items.create(id: 12345, name: "AnItem", description: 'Good Item', unit_price: 12345, image_url: 'anything', created_at: '2018-06-27', updated_at: '2018-06-28')
       visit '/items'
 
-      within('.items_table') do
-        expect(page).to have_content(item_1.name)
-      end
-
       click_link('AnItem')
 
       expect(current_path).to eq('/items/12345')

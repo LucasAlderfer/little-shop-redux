@@ -6,11 +6,7 @@ RSpec.describe 'a visitor' do
 
       visit '/items/12345'
 
-      save_and_open_page
-
-      within('section') do
-        expect(page).to have_content(item_1.name)
-      end
+      expect(page).to have_content(item_1.name)
     end
     it 'should show item description' do
       merchant_1 = Merchant.create(name: "JP", id: 1234, updated_at: "1234-12-12", created_at: "1333-12-12")
@@ -18,9 +14,7 @@ RSpec.describe 'a visitor' do
 
       visit '/items/12345'
 
-      within('section') do
-        expect(page).to have_content(item_1.description)
-      end
+      expect(page).to have_content(item_1.description)
     end
     it 'should show item unit price' do
       merchant_1 = Merchant.create(name: "JP", id: 1234, updated_at: "1234-12-12", created_at: "1333-12-12")
@@ -28,9 +22,7 @@ RSpec.describe 'a visitor' do
 
       visit '/items/12345'
 
-      within('section') do
-        expect(page).to have_content(item_1.unit_price)
-      end
+      expect(page).to have_content(item_1.unit_price)
     end
     it 'should show item merchant name' do
       merchant_1 = Merchant.create(name: "JP", id: 1234, updated_at: "1234-12-12", created_at: "1333-12-12")
@@ -38,9 +30,7 @@ RSpec.describe 'a visitor' do
 
       visit '/items/12345'
 
-      within('section') do
-        expect(page).to have_content(merchant_1.name)
-      end
+      expect(page).to have_content(merchant_1.name)
     end
     it 'should show an edit button that when clicked will redirect to /edit' do
       merchant_1 = Merchant.create(name: "JP", id: 1234, updated_at: "1234-12-12", created_at: "1333-12-12")
