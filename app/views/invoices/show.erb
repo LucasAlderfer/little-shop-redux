@@ -6,7 +6,7 @@
   <link rel="stylesheet" type="text/css" href="/main.css">
   <link href="https://fonts.googleapis.com/css?family=Comfortaa|Didact+Gothic|Monoton" rel="stylesheet">
 </head>
-<body></body>
+<body>
   <div class="header">
     <header>
       <div class="navcontainer">
@@ -20,24 +20,17 @@
     </header>
   </div>
   <section>
-    <h2>INVOICES</h2>
+    <h2>Invoice: <%= @invoice.id %> - <%= @invoice.status.capitalize %></h2>
+    <div class="single_merchant_button">
+      <a href="/invoices/<%= @invoice.id %>/edit" class="create_link" >edit</a>
+      <form action="/invoices/<%= @invoice.id %>" method='POST' class="form_reset">
+        <input type='hidden' name='_method' value='DELETE'>
+        <input type='submit' value='delete' class="create_link"/>
+      </form>
+    </div>
   </section>
-  <table class="invoices_table">
-    <% @invoices.each do |invoice| %>
-    <tr>
-      <td><a href="/invoices/<%= invoice.id %>" class="hvr-pop" id="name-invoice-id"><%= invoice.id %></a></td>
-      <td class="create_link"><a href="/invoices/<%= invoice.id %>/edit" >edit</a></td>
-      <td>
-        <form action="/invoices/<%= invoice.id %>" method='POST'>
-          <input type='hidden' name='_method' value='DELETE'>
-          <input type='submit' value='delete' class="create_link" />
-        </form>
-      </td>
-    </tr>
-    <% end %>
-  </table>
-  <footer>
-    <p>Created by Keegan, JP, and Lucas<p>
-  </footer>
+  <main>
+    <h3><a href="/merchants/<%= @invoice.merchant.id %>" class="hvr-pop" id="name-merchant-link"><%= @invoice.merchant.name %></a></h3>
+  </main>
 </body>
 </html>

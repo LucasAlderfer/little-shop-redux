@@ -39,4 +39,25 @@ class LittleShopApp < Sinatra::Base
     @invoices = Invoice.all
     erb :'invoices/index'
   end
+
+  get '/invoices/:id' do
+    @invoice = Invoice.find(params[:id])
+    @merchant = @invoice.merchant
+    erb :'invoices/show'
+  end
+
+  delete '/invoices/:id' do
+    Invoice.where(id: params[:id]).destroy_all
+    redirect '/invoices'
+  end
+
+  get '/invoices/:id/edit' do
+    @invoice = Invoice.where(id: params[:id]).includes(:merchant).first
+    erb :'invoices/edit'
+  end
+
+  put '/invoices/:id/edit' do
+    Invoice.update(params[:id].to_i, params[:invoice])
+    redirect "/invoices/#{params[:id]}"
+  end
 end
