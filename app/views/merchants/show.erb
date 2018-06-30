@@ -29,5 +29,14 @@
       </form>
     </div>
   </section>
+  <main>
+    <% @merchant.items.each do |item| %>
+    <article class="item-container">
+          <img src='<%= item.image_url %>'/>
+          <p class="item-text"><a href="/items/<%= item.id %>" class="hvr-pop"><%= item.name %></a></p>
+          <p class="item-text">Price: <%= item.unit_price %></p>
+      </article>
+      <% end %>
+  </main>
 </body>
 </html>
