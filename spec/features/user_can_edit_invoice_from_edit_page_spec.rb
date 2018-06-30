@@ -32,12 +32,14 @@ RSpec.describe 'a visitor' do
       invoice = merchant.invoices.create(id: 1050, customer_id: 87654321, status: 'pending', updated_at: '2012-12-10', created_at: '2012-11-10')
       visit '/invoices/1050/edit'
 
-      find('#invoice-status-dropdown').find(:xpath, 'option[1]').select_option
+      find('#invoice-status-dropdown').find(:xpath, 'option[3]').select_option
+
 
       click_on('update invoice')
 
       expect(current_path).to eq('/invoices/1050')
       expect(page).to have_content("Invoice: #{invoice.id}")
+      expect(page).to have_content("Invoice: #{invoice.id} - Returned")
     end
   end
 end
