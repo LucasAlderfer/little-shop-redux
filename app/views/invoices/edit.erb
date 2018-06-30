@@ -23,16 +23,24 @@
     <h2>Invoice: <%= @invoice.id %> - <%= @invoice.status.capitalize %></h2>
   </section>
   <main>
-  <nav id="primary_nav_wrap">
-    <ul>
-      <li><a href="#">Status</a>
-        <ul>
-          <li><a href="#">Pending</a></li>
-          <li><a href="#">Shipped</a></a></li>
-          <li><a href="#">Returned</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
+  <form action="/invoices/<%= @invoice.id %>/edit" method="POST" >
+    <input type='hidden' name='_method' value='PUT' />
+    <label for='Merchant'>Merchant</label>
+    <div align="center">
+      <select name="invoice[status]" id='invoice-merchant-name'>
+        <option value="merchant-name"><%= @invoice.merchant.name %></option>
+      </select>
+    </div>
+    <label for='Status'>Status</label>
+    <div align="center">
+      <select name="invoice[status]" id='invoice-status-dropdown'>
+        <option value="pending">Pending</option>
+        <option value="shipped">Shipped</option>
+        <option value="returned">Returned</option>
+      </select>
+    </div>
+    <input type='submit' value='update invoice status' class='create_link'/>
+    <a href="/invoices" class='create_link'>cancel</a>
+  </form>
 </body>
 </html>
