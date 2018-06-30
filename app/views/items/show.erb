@@ -28,10 +28,12 @@
         <input type='submit' value='delete' />
       </form>
     </div>
-    <h3><%= @item.name %></h3>
-    <h4><%= @item.unit_price %></h4>
+    <!-- <img src="/Pembroke_Welsh_Corgi_Puppy.jpg" /> -->
+    <img src=<% @item.image_url %> />
+    <p><%= @item.name %></p>
+    <p><%= @item.unit_price %></p>
     <p><%= @item.description %></p>
-    <h3><%= @item.merchant_id %></h3>
+    <p><%= @item.merchant_id %></p>
     <image src='<%= @item.image_url %>'/>
   </section>
 </body>

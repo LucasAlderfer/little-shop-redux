@@ -242,3 +242,7 @@ footer {
 .form_reset {
   margin-bottom: 0;
 }
+
+td img {
+  width: 10%;
+}

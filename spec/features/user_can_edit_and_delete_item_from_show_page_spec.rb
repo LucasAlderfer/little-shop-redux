@@ -34,7 +34,7 @@ RSpec.describe 'a visitor' do
       end
     end
     it 'should show item image' do
-      item_1 = Item.create(id: 12345, name: "AnItem", description: 'Good Item', merchant_id: 1, unit_price: 12345, image_url: 'anything', created_at: '2018-06-27', updated_at: '2018-06-28')
+      item_1 = Item.create(id: 12345, name: "AnItem", description: 'Good Item', merchant_id: 1, unit_price: 12345, image_url: "/Pembroke_Welsh_Corgi_Puppy.jpg", created_at: '2018-06-27', updated_at: '2018-06-28')
 
       visit '/items/12345'
 

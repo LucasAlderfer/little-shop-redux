@@ -42,6 +42,11 @@ RSpec.describe Item do
 
       expect(item).to_not be_valid
     end
+    it 'is valid with all correct information' do
+        item = Item.create(id: 1234, name: 'AnItem', description: 'Good Item', unit_price: 12345, image_url: 'anything', merchant_id: 12344105, created_at: '2018-06-27', updated_at: '2018-06-28')
+
+        expect(item).to be_valid
+    end
   end
   describe 'instance methods' do
     it '.merchant_name' do
