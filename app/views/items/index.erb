@@ -12,25 +12,25 @@
       <div class="navcontainer">
         <nav class="fixednav">
           <div class="leftnav"><a href="#">LittleSHOP</a></div>
-          <div class="rightnav"><a href="#" class="hvr-pop">Merchants</a></div>
-          <div class="rightnav"><a href="#" class="hvr-pop">Items</a></div>
-          <div class="rightnav"><a href="#" class="hvr-pop">Invoices</a></div>
+          <div class="rightnav"><a href="/merchants" class="hvr-pop">Merchants</a></div>
+          <div class="rightnav"><a href="/items" class="hvr-pop">Items</a></div>
+          <div class="rightnav"><a href="/invoices" class="hvr-pop">Invoices</a></div>
         </nav>
       </div>
     </header>
   </div>
   <section>
     <h2>ITEMS</h2>
-    <a href='/items/new'>Create A New Item</a>
+    <a href='/items/new' class="create_link">Create A New Item</a>
   </section>
-  <table class="items_table">
+  <main>
     <% @items.each do |item| %>
-    <tr>
-      <td><img src='<%= item.image_url %>'/></td>
-      <td><a href="/items/<%= item.id %>" class="hvr-pop"><%= item.name %></a></td>
-      <td><h3>$<%= item.unit_price %></h3></td>
-    </tr>
-    <% end %>
-  </table>
+    <article class="item-container">
+          <img src='<%= item.image_url %>'/>
+          <p class="item-text"><a href="/items/<%= item.id %>" class="hvr-pop"><%= item.name %></a></p>
+          <p class="item-text">Price: <%= item.unit_price %></p>
+      </article>
+      <% end %>
+  </main>
 </body>
 </html>

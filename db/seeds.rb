@@ -10,7 +10,7 @@ CSV.foreach('./data/merchants.csv', headers: true, header_converters: :symbol) d
 end
 
 CSV.foreach('./data/items.csv', headers: true, header_converters: :symbol) do |row|
-  Item.create(id: row[0], name: row[1], description: row[2], unit_price: row[3], merchant_id: row[4], created_at: row[5], updated_at: row[6])
+  Item.create(id: row[0], name: row[1], description: row[2], unit_price: row[3], merchant_id: row[4], created_at: row[5], updated_at: row[6], image_url: "/Pembroke_Welsh_Corgi_Puppy.jpg" )
 end
 
 puts Merchant.count
