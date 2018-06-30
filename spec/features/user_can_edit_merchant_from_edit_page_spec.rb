@@ -16,6 +16,7 @@ RSpec.describe 'a visitor' do
 
       click_on('update merchant')
       expect(current_path).to eq('/merchants/12345678')
+
       expect(page).to have_content('Shopin1902')
     end
   end

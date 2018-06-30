@@ -20,25 +20,19 @@
     </header>
   </div>
   <section>
-    <h2>MERCHANTS</h2>
-    <a href='/merchants/new' class="create_link">Create New Merchant</a>
+    <h2><%= @item.name %></h2>
+    <div class="single_item_button">
+      <a href="/items/<%= @item.id %>/edit" class="create_link">edit</a>
+      <form action="/items/<%= @item.id %>" method='POST'>
+        <input type='hidden' name='_method' value='DELETE'>
+        <input type='submit' value='delete' class="create_link"/>
+      </form>
+    </div>
+    <img src='<%= @item.image_url %>' />
+    <p><%= @item.name %></p>
+    <p><%= @item.unit_price %></p>
+    <p><%= @item.description %></p>
+    <p><%= @item.merchant.name %></p>
   </section>
-  <table class="merchants_table">
-    <% @merchants.each do |merchant| %>
-    <tr>
-      <td><a href="/merchants/<%= merchant.id %>" class="hvr-pop"><%= merchant.name %></a></td>
-      <td class="create_link"><a href="/merchants/<%= merchant.id %>/edit" >edit</a></td>
-      <td>
-        <form action="/merchants/<%= merchant.id %>" method='POST'>
-          <input type='hidden' name='_method' value='DELETE'>
-          <input type='submit' value='delete'  class="create_link" />
-        </form>
-      </td>
-    </tr>
-    <% end %>
-  </table>
-  <footer>
-    <p>Created by Keegan, JP, and Lucas<p>
-  </footer>
 </body>
 </html>

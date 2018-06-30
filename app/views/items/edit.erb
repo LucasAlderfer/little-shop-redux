@@ -1,0 +1,47 @@
+<html>
+<head>
+  <title>Little Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa|Didact+Gothic|Monoton" rel="stylesheet">
+</head>
+<body>
+  <div class="header">
+    <header>
+      <div class="navcontainer">
+        <nav class="fixednav">
+          <div class="leftnav"><a href="#">LittleSHOP</a></div>
+          <div class="rightnav"><a href="/merchants" class="hvr-pop">Merchants</a></div>
+          <div class="rightnav"><a href="/items" class="hvr-pop">Items</a></div>
+          <div class="rightnav"><a href="/invoices" class="hvr-pop">Invoices</a></div>
+        </nav>
+      </div>
+    </header>
+  </div>
+  <section>
+    <h2>Edit <%= @item.name %></h2>
+  </section>
+  <main class='new_item_field'>
+    <form action="/items/<%= @item.id %>" method='POST'>
+      <input type='hidden' name='_method' value='PUT' />
+      <label for="fmerchant">Merchant Name</label>
+      <select class="drop-down" name='item[merchant_id]' id='merchant-name-dropdown'>
+        <% @merchants.each do |merchant| %>
+          <option value=<%= merchant.id %>><%= merchant.name %></option>
+        <% end %>
+      </select>
+      <label for="fname">Item Name</label>
+      <input type='text' name='item[name]' value="<%= @item.name %>">
+      <label for="fdescription">Description</label>
+      <input type='text' name='item[description]' value="<%= @item.description %>">
+      <label for="fprice">Unit Price</label>
+      <input type='text' name='item[unit_price]' value=<%= @item.unit_price %>>
+      <label for="fdescription">Image URL</label>
+      <input type='text' name='item[image_url]' value="<%= @item.image_url%>">
+      <input type='submit' value='update item' class='create_link'/>
+      <a href='/items/<%= @item.id %>' class='create_link'>cancel</a>
+    </form>
+  </main>
+</body>
+</html>
