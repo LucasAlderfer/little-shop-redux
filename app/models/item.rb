@@ -17,4 +17,20 @@ class Item < ActiveRecord::Base
       Item.last.id + 1
     end
   end
+
+  def self.total_count
+    count
+  end
+
+  def self.average_price
+    average(:unit_price)
+  end
+
+  def self.newest
+    Item.where(created_at: Item.maximum(:created_at)).first.name
+  end
+
+  def self.oldest
+    Item.where(created_at: Item.minimum(:created_at)).first.name
+  end
 end
