@@ -17,5 +17,5 @@ group :development, :test do
   gem 'shotgun'
   gem 'tux'
   gem 'pry'
-  gem 'simplecov'
+  gem 'simplecov', require: false, group: :test
 end
