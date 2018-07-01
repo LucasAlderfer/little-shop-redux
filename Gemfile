@@ -4,8 +4,10 @@ gem 'activerecord'
 gem 'pg'
 gem 'sinatra', require: 'sinatra/base'
 gem 'sinatra-activerecord'
+gem 'will_paginate'
 
 group :development, :test do
+  gem 'nyan-cat-formatter'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'

@@ -1,6 +1,13 @@
+require 'will_paginate'
+require 'will_paginate/active_record'
+
 class LittleShopApp < Sinatra::Base
+  configure do
+    register WillPaginate::Sinatra
+  end
+
   get '/merchants' do
-    @merchants = Merchant.all
+    @merchants = Merchant.paginate(:page => params[:page], :per_page => 30)
     erb :'merchants/index'
   end
 

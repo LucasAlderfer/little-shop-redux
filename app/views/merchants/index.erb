@@ -37,6 +37,13 @@
     </tr>
     <% end %>
   </table>
+  <div class="styled_pagination">
+    <div class="page_info">
+      <%= page_entries_info @merchants %>
+    <br/>
+      <%= will_paginate @merchants, :container => false %>
+    </div>
+  </div>
   <footer>
     <p>Created by Keegan, JP, and Lucas<p>
   </footer>
