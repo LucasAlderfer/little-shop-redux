@@ -30,8 +30,6 @@ RSpec.describe 'a visitor' do
 
       visit '/invoices/1050'
 
-      save_and_open_page
-
       expect(page).to have_content(expected_total)
     end
     it 'should be able to click on item_id to go to item page' do
@@ -44,8 +42,6 @@ RSpec.describe 'a visitor' do
       expected_total = (invoice_item_1.quantity * item_1.unit_price) + (invoice_item_2.quantity * item_2.unit_price)
 
       visit '/invoices/1050'
-
-      save_and_open_page
 
       click_on(item_1.id)
 
