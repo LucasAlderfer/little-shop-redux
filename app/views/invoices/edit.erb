@@ -44,8 +44,19 @@
       <input type='submit' value='update invoice status' class='create_link'/>
     </div>
   </form>
+    <td>
+      <% @invoice_items.each do |invoice_item| %>
+        <tr>
+          <%= invoice_item.item.id %>
+          <%= invoice_item.item.name %>
+          <%= invoice_item.quantity %>
+          <%= invoice_item.item.unit_price %></br>
+        </tr>
+      <% end %>
+    </td>
+  </main>
   <footer>
     <p>Created by Keegan, JP, and Lucas<p>
-  </footer>
+    </footer>
 </body>
 </html>
