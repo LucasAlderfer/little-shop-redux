@@ -5,6 +5,10 @@
 @import url("forms.css");
 @import url("pagination.css");
 
+.center-heading {
+  text-align: center;
+}
+
 .single-item-container {
   display: flex;
 }

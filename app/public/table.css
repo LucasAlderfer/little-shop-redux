@@ -14,6 +14,17 @@
   border-bottom: 1px solid silver;
 }
 
+.invoice-show-table {
+  border-top: 1px solid silver;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  z-index: 9999;
+  padding-left: 20%;
+  padding-right: 20%;
+  border-bottom: 1px solid silver;
+}
+
 .invoices_table tr:nth-child(even), .merchants_table tr:nth-child(even) {
   background-color: silver;
 }
@@ -25,3 +36,19 @@
 table {
   border-collapse:collapse;
 }
+
+table tr .invoice-th {
+  font-size: 1em;
+  text-transform: uppercase;
+  background-color: white;
+}
+
+.invoice-td {
+  width: 10%;
+}
+
+tr th:nth-child(2) {
+  width: 50%;
+}
+
+/* style= "width: 50%;" */

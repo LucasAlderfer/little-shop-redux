@@ -30,25 +30,25 @@
     </div>
   </section>
   <h2 class="merch-item-heading"><a href="/merchants/<%= @merchant.id %>" class="hvr-pop"> <%= @merchant.name %></a></h2>
-  <table class="merchants_table" class="adjust-table-width">
-    <tr class="table-headers">
-      <th>Item ID</th>
-      <th>Item title</th>
-      <th>Quantity</th>
-      <th>Unit Price</th>
-      <th>Subtotal</th>
+  <table class="invoice-show-table">
+    <tr>
+      <th class="invoice-th">Item ID</th>
+      <th class="invoice-th">Item title</th>
+      <th class="invoice-th">Quantity</th>
+      <th class="invoice-th">Unit Price</th>
+      <th class="invoice-th">Subtotal</th>
     </tr>
     <% @invoice_items.each do |invoice_item| %>
       <tr>
-        <td><a href="/items/<%=invoice_item.item.id%>"><%= invoice_item.item.id %></a></td>
-        <td><%= invoice_item.item.name %></td>
-        <td><%= invoice_item.quantity %></td>
-        <td><%= invoice_item.item.unit_price %></td>
-        <td><%= (invoice_item.quantity * invoice_item.item.unit_price) %></td>
+        <td class="invoice-td"><a href="/items/<%=invoice_item.item.id%>"><%= invoice_item.item.id %></a></td>
+        <td class="invoice-td"><%= invoice_item.item.name %></td>
+        <td class="invoice-td"><%= invoice_item.quantity %></td>
+        <td class="invoice-td"><%= invoice_item.item.unit_price %></td>
+        <td class="invoice-td"><%= (invoice_item.quantity * invoice_item.item.unit_price) %></td>
       </tr>
       <% end %>
     </table>
-    <h3><%= @invoice.total_price %></h3>
+    <h3 class="center-heading"><strong>Total price:</strong> <%= @invoice.total_price %></h3>
   <footer>
     <p>Created by Keegan, JP, and Lucas<p>
   </footer>
