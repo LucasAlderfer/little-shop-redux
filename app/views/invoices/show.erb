@@ -31,6 +31,16 @@
   </section>
   <main>
     <h3><a href="/merchants/<%= @invoice.merchant.id %>" class="hvr-pop" id="name-merchant-link"><%= @invoice.merchant.name %></a></h3>
+    <td>
+      <% @invoice_items.each do |invoice_item| %>
+        <tr>
+          <%= invoice_item.item.id %>
+          <%= invoice_item.item.name %>
+          <%= invoice_item.quantity %>
+          <%= invoice_item.item.unit_price %></br>
+        </tr>
+      <% end %>
+    </td>
   </main>
   <footer>
     <p>Created by Keegan, JP, and Lucas<p>
