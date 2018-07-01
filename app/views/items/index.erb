@@ -20,18 +20,12 @@
     </header>
   </div>
   <section>
-    <h2><%= @merchant.name %></h2>
-    <div class="single_merchant_button">
-      <a href="/merchants/<%= @merchant.id %>/edit" class="create_link" >edit</a>
-      <form action="/merchants/<%= @merchant.id %>" method='POST' class="form_reset">
-        <input type='hidden' name='_method' value='DELETE'>
-        <input type='submit' value='delete' class="create_link"/>
-      </form>
-    </div>
+    <a href="#" class="hvr-pop"><img src='/dashboard_logo.png' class="dash-board-logo" href="#"></a>
+    <h2>ITEMS</h2>
+    <a href='/items/new' class="create_link">Create A New Item</a>
   </section>
-  <h2 class="merch-item-heading">Merchant Items</h2>
   <main>
-    <% @merchant.items.each do |item| %>
+    <% @items.each do |item| %>
     <article class="item-container">
           <img src='<%= item.image_url %>'/>
           <p class="item-text"><a href="/items/<%= item.id %>" class="hvr-pop"><%= item.name %></a></p>
@@ -39,6 +33,13 @@
       </article>
       <% end %>
   </main>
+  <div class="styled_pagination">
+    <div class="page_info">
+      <%= page_entries_info @items %>
+    <br/>
+      <%= will_paginate @items, :container => false %>
+    </div>
+  </div>
   <footer>
     <p>Created by Keegan, JP, and Lucas<p>
   </footer>

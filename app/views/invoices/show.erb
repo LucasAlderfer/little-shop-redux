@@ -20,25 +20,35 @@
     </header>
   </div>
   <section>
-    <h2><%= @merchant.name %></h2>
+    <h2>Invoice: <%= @invoice.id %> - <%= @invoice.status.capitalize %></h2>
     <div class="single_merchant_button">
-      <a href="/merchants/<%= @merchant.id %>/edit" class="create_link" >edit</a>
-      <form action="/merchants/<%= @merchant.id %>" method='POST' class="form_reset">
+      <a href="/invoices/<%= @invoice.id %>/edit" class="create_link" >edit</a>
+      <form action="/invoices/<%= @invoice.id %>" method='POST' class="form_reset">
         <input type='hidden' name='_method' value='DELETE'>
         <input type='submit' value='delete' class="create_link"/>
       </form>
     </div>
   </section>
-  <h2 class="merch-item-heading">Merchant Items</h2>
-  <main>
-    <% @merchant.items.each do |item| %>
-    <article class="item-container">
-          <img src='<%= item.image_url %>'/>
-          <p class="item-text"><a href="/items/<%= item.id %>" class="hvr-pop"><%= item.name %></a></p>
-          <p class="item-text"><strong>Price:</strong> <%= item.unit_price %></p>
-      </article>
+  <h2 class="merch-item-heading"><a href="/merchants/<%= @merchant.id %>" class="hvr-pop"> <%= @merchant.name %></a></h2>
+  <table class="merchants_table" class="adjust-table-width">
+    <tr class="table-headers">
+      <th>Item ID</th>
+      <th>Item title</th>
+      <th>Quantity</th>
+      <th>Unit Price</th>
+      <th>Subtotal</th>
+    </tr>
+    <% @invoice_items.each do |invoice_item| %>
+      <tr>
+        <td><a href="/items/<%=invoice_item.item.id%>"><%= invoice_item.item.id %></a></td>
+        <td><%= invoice_item.item.name %></td>
+        <td><%= invoice_item.quantity %></td>
+        <td><%= invoice_item.item.unit_price %></td>
+        <td><%= (invoice_item.quantity * invoice_item.item.unit_price) %></td>
+      </tr>
       <% end %>
-  </main>
+    </table>
+    <h3><%= @invoice.total_price %></h3>
   <footer>
     <p>Created by Keegan, JP, and Lucas<p>
   </footer>
