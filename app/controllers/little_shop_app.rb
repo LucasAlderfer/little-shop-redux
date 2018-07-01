@@ -104,8 +104,9 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/invoices/:id' do
-    @invoice = Invoice.find(params[:id])
+    @invoice = Invoice.where(id: params[:id]).includes(:merchant, :invoice_items, :items).first
     @merchant = @invoice.merchant
+    @invoice_items = @invoice.invoice_items
     erb :'invoices/show'
   end
 
@@ -115,7 +116,9 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/invoices/:id/edit' do
-    @invoice = Invoice.where(id: params[:id]).includes(:merchant).first
+    @invoice = Invoice.where(id: params[:id]).includes(:merchant, :invoice_items, :items).first
+    @merchant = @invoice.merchant
+    @invoice_items = @invoice.invoice_items
     erb :'invoices/edit'
   end
 

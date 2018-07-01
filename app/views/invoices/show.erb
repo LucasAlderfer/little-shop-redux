@@ -29,9 +29,26 @@
       </form>
     </div>
   </section>
-  <main>
-    <h3><a href="/merchants/<%= @invoice.merchant.id %>" class="hvr-pop" id="name-merchant-link"><%= @invoice.merchant.name %></a></h3>
-  </main>
+  <h2 class="merch-item-heading"><a href="/merchants/<%= @merchant.id %>" class="hvr-pop"> <%= @merchant.name %></a></h2>
+  <table class="merchants_table" class="adjust-table-width">
+    <tr class="table-headers">
+      <th>Item ID</th>
+      <th>Item title</th>
+      <th>Quantity</th>
+      <th>Unit Price</th>
+      <th>Subtotal</th>
+    </tr>
+    <% @invoice_items.each do |invoice_item| %>
+      <tr>
+        <td><a href="/items/<%=invoice_item.item.id%>"><%= invoice_item.item.id %></a></td>
+        <td><%= invoice_item.item.name %></td>
+        <td><%= invoice_item.quantity %></td>
+        <td><%= invoice_item.item.unit_price %></td>
+        <td><%= (invoice_item.quantity * invoice_item.item.unit_price) %></td>
+      </tr>
+      <% end %>
+    </table>
+    <h3><%= @invoice.total_price %></h3>
   <footer>
     <p>Created by Keegan, JP, and Lucas<p>
   </footer>

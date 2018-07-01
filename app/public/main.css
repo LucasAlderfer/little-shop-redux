@@ -74,6 +74,13 @@ table {
   border-collapse: collapse;
 }
 
+th {
+  background-color: red;
+}
+table .adjust-table-width tr td {
+  width: auto;
+}
+
 .single-item-container article {
   align-items: left;
   width: 50%;
