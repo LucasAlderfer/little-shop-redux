@@ -23,7 +23,7 @@ body {
 }
 
 form {
-  width: 50%;
+  width: 40%;
 }
 
 .form-align-buttons {
@@ -236,7 +236,7 @@ section {
 .create_link:active {
   top: 0px;
   box-shadow: 0px 0px 0px rgba( 15, 1, 60, 0.0 );
-  background: silver;
+  background: rgb(240,205,165);
 }
 
 h2 {
@@ -354,9 +354,11 @@ select {
 .styled_pagination a, .styled_pagination span {
     padding: 0.2em 0.3em;
   }
+
 .styled_pagination .disabled {
     color: #aaaaaa;
   }
+
 .styled_pagination .current {
     font-style: normal;
     font-weight: bold;
@@ -368,10 +370,11 @@ select {
     border-radius: 1em;
     text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
   }
-.styled_pagination a {
+
+/* .styled_pagination a {
     text-decoration: none;
     color: black;
   }
 .styled_pagination a:hover, .styled_pagination a:focus {
     text-decoration: underline;
-  }
+  } */
