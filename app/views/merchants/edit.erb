@@ -11,7 +11,7 @@
     <header>
       <div class="navcontainer">
         <nav class="fixednav">
-          <div class="leftnav"><a href="#">LittleSHOP</a></div>
+          <div class="leftnav"><a href="#">LittleSHOP</a><img src='/little_shop_logo.png' class="shop-logo"></div>
           <div class="rightnav"><a href="/merchants" class="hvr-pop">Merchants</a></div>
           <div class="rightnav"><a href="/items" class="hvr-pop">Items</a></div>
           <div class="rightnav"><a href="/invoices" class="hvr-pop">Invoices</a></div>
@@ -27,8 +27,10 @@
     <input type='hidden' name='_method' value='PUT' />
       <label for="fname">Name</label>
       <input type='text' name='merchant[name]' placeholder=<%= @merchant.name %> value='update merchant'>
-      <input type='submit' value='update merchant' class='create_link'/>
-      <a href="/merchants/<%= @merchant.id %>" class='create_link'>cancel</a>
+      <div class="form-align-buttons">
+        <a href="/merchants/<%= @merchant.id %>" class='create_link'>cancel</a>
+        <input type='submit' value='update merchant' class='create_link'/>
+      </div>
     </form>
   </main>
   <footer>

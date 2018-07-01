@@ -11,10 +11,10 @@
     <header>
       <div class="navcontainer">
         <nav class="fixednav">
-          <div class="leftnav"><a href="#">LittleSHOP</a></div>
-          <div class="rightnav"><a href="#" class="hvr-pop">Merchants</a></div>
-          <div class="rightnav"><a href="#" class="hvr-pop">Items</a></div>
-          <div class="rightnav"><a href="#" class="hvr-pop">Invoices</a></div>
+          <div class="leftnav"><a href="#">LittleSHOP</a><img src='/little_shop_logo.png' class="shop-logo"></div>
+          <div class="rightnav"><a href="/merchants" class="hvr-pop">Merchants</a></div>
+          <div class="rightnav"><a href="/items" class="hvr-pop">Items</a></div>
+          <div class="rightnav"><a href="/invoices" class="hvr-pop">Invoices</a></div>
         </nav>
       </div>
     </header>
@@ -39,8 +39,13 @@
         <option value="returned">Returned</option>
       </select>
     </div>
-    <input type='submit' value='update invoice status' class='create_link'/>
-    <a href="/invoices" class='create_link'>cancel</a>
+    <div class="form-align-buttons">
+      <a href="/invoices" class='create_link'>cancel</a>
+      <input type='submit' value='update invoice status' class='create_link'/>
+    </div>
   </form>
+  <footer>
+    <p>Created by Keegan, JP, and Lucas<p>
+  </footer>
 </body>
 </html>

@@ -11,22 +11,23 @@
     <header>
       <div class="navcontainer">
         <nav class="fixednav">
-          <div class="leftnav"><a href="#">LittleSHOP</a></div>
-          <div class="rightnav"><a href="#" class="hvr-pop">Merchants</a></div>
-          <div class="rightnav"><a href="#" class="hvr-pop">Items</a></div>
-          <div class="rightnav"><a href="#" class="hvr-pop">Invoices</a></div>
+          <div class="leftnav"><a href="#">LittleSHOP</a><img src='/little_shop_logo.png' class="shop-logo"></div>
+          <div class="rightnav"><a href="/merchants" class="hvr-pop">Merchants</a></div>
+          <div class="rightnav"><a href="/items" class="hvr-pop">Items</a></div>
+          <div class="rightnav"><a href="/invoices" class="hvr-pop">Invoices</a></div>
         </nav>
       </div>
     </header>
   </div>
   <section>
+    <a href="#" class="hvr-pop"><img src='/dashboard_logo.png' class="dash-board-logo" href="#"></a>
     <h2>INVOICES</h2>
   </section>
   <table class="invoices_table">
     <% @invoices.each do |invoice| %>
     <tr>
       <td><a href="/invoices/<%= invoice.id %>" class="hvr-pop" id="name-invoice-id"><%= invoice.id %></a></td>
-      <td class="create_link"><a href="/invoices/<%= invoice.id %>/edit" >edit</a></td>
+      <td><a href="/invoices/<%= invoice.id %>/edit" class="create_link" >edit</a></td>
       <td>
         <form action="/invoices/<%= invoice.id %>" method='POST'>
           <input type='hidden' name='_method' value='DELETE'>
@@ -39,5 +40,12 @@
   <footer>
     <p>Created by Keegan, JP, and Lucas<p>
   </footer>
+  <div class="styled_pagination">
+    <div class="page_info">
+      <%= page_entries_info @invoices %>
+    <br/>
+      <%= will_paginate @invoices, :container => false %>
+    </div>
+  </div>
 </body>
 </html>

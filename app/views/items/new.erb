@@ -11,7 +11,7 @@
     <header>
       <div class="navcontainer">
         <nav class="fixednav">
-          <div class="leftnav"><a href="#">LittleSHOP</a></div>
+          <div class="leftnav"><a href="#">LittleSHOP</a><img src='/little_shop_logo.png' class="shop-logo"></div>
           <div class="rightnav"><a href="/merchants" class="hvr-pop">Merchants</a></div>
           <div class="rightnav"><a href="/items" class="hvr-pop">Items</a></div>
           <div class="rightnav"><a href="/invoices" class="hvr-pop">Invoices</a></div>
@@ -35,12 +35,17 @@
       <label for="fdescription">Description</label>
       <input type='text' name='item[description]' placeholder='Item description'>
       <label for="fprice">Unit Price</label>
-      <input type='text' name='item[unit_price]' placeholder='Item description'>
+      <input type='text' name='item[unit_price]' placeholder='Item price'>
       <label for="fdescription">Image URL</label>
       <input type='text' name='item[image_url]' placeholder='Item image url'>
-      <input type='submit' value='create' class='create_link'/>
-      <a href='/items' class='create_link'>cancel</a>
+      <div class="form-align-buttons">
+        <a href='/items' class='create_link'>cancel</a>
+        <input type='submit' value='create' class='create_link'/>
+      </div>
     </form>
   </main>
+  <footer>
+    <p>Created by Keegan, JP, and Lucas<p>
+  </footer>
 </body>
 </html>

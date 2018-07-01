@@ -11,7 +11,7 @@
     <header>
       <div class="navcontainer">
         <nav class="fixednav">
-          <div class="leftnav"><a href="#">LittleSHOP</a></div>
+          <div class="leftnav"><a href="#">LittleSHOP</a><img src='/little_shop_logo.png' class="shop-logo"></div>
           <div class="rightnav"><a href="/merchants" class="hvr-pop">Merchants</a></div>
           <div class="rightnav"><a href="/items" class="hvr-pop">Items</a></div>
           <div class="rightnav"><a href="/invoices" class="hvr-pop">Invoices</a></div>
@@ -21,18 +21,29 @@
   </div>
   <section>
     <h2><%= @item.name %></h2>
-    <div class="single_item_button">
+    <div class="single_merchant_button">
       <a href="/items/<%= @item.id %>/edit" class="create_link">edit</a>
-      <form action="/items/<%= @item.id %>" method='POST'>
+      <form action="/items/<%= @item.id %>" method='POST' class="form_reset">
         <input type='hidden' name='_method' value='DELETE'>
         <input type='submit' value='delete' class="create_link"/>
       </form>
     </div>
-    <img src='<%= @item.image_url %>' />
-    <p><%= @item.name %></p>
-    <p><%= @item.unit_price %></p>
-    <p><%= @item.description %></p>
-    <p><%= @item.merchant.name %></p>
   </section>
+  <div class="single-item-container">
+    <figure>
+      <h2><%= @item.merchant.name %></h2>
+      <img src='<%= @item.image_url %>' class="individual-item"/>
+    </figure>
+    <article>
+      <h2><%= @item.name %></h2>
+      <h3>Price:</h3>
+      <p><%= @item.unit_price %></p>
+      <h3>About this item:</h3>
+      <p><%= @item.description %></p>
+    </article>
+  </div>
+  <footer>
+    <p>Created by Keegan, JP, and Lucas<p>
+  </footer>
 </body>
 </html>

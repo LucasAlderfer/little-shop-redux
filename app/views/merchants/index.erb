@@ -11,7 +11,7 @@
     <header>
       <div class="navcontainer">
         <nav class="fixednav">
-          <div class="leftnav"><a href="#">LittleSHOP</a></div>
+          <div class="leftnav"><a href="#">LittleSHOP</a><img src='/little_shop_logo.png' class="shop-logo"></div>
           <div class="rightnav"><a href="/merchants" class="hvr-pop">Merchants</a></div>
           <div class="rightnav"><a href="/items" class="hvr-pop">Items</a></div>
           <div class="rightnav"><a href="/invoices" class="hvr-pop">Invoices</a></div>
@@ -20,6 +20,7 @@
     </header>
   </div>
   <section>
+    <a href="#" class="hvr-pop"><img src='/dashboard_logo.png' class="dash-board-logo" href="#"></a>
     <h2>MERCHANTS</h2>
     <a href='/merchants/new' class="create_link">Create New Merchant</a>
   </section>
@@ -27,7 +28,7 @@
     <% @merchants.each do |merchant| %>
     <tr>
       <td><a href="/merchants/<%= merchant.id %>" class="hvr-pop"><%= merchant.name %></a></td>
-      <td class="create_link"><a href="/merchants/<%= merchant.id %>/edit" >edit</a></td>
+      <td><a href="/merchants/<%= merchant.id %>/edit" class="create_link">edit</a></td>
       <td>
         <form action="/merchants/<%= merchant.id %>" method='POST'>
           <input type='hidden' name='_method' value='DELETE'>
@@ -37,6 +38,13 @@
     </tr>
     <% end %>
   </table>
+  <div class="styled_pagination">
+    <div class="page_info">
+      <%= page_entries_info @merchants %>
+    <br/>
+      <%= will_paginate @merchants, :container => false %>
+    </div>
+  </div>
   <footer>
     <p>Created by Keegan, JP, and Lucas<p>
   </footer>

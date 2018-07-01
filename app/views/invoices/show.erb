@@ -11,10 +11,10 @@
     <header>
       <div class="navcontainer">
         <nav class="fixednav">
-          <div class="leftnav"><a href="#">LittleSHOP</a></div>
-          <div class="rightnav"><a href="#" class="hvr-pop">Merchants</a></div>
-          <div class="rightnav"><a href="#" class="hvr-pop">Items</a></div>
-          <div class="rightnav"><a href="#" class="hvr-pop">Invoices</a></div>
+          <div class="leftnav"><a href="#">LittleSHOP</a><img src='/little_shop_logo.png' class="shop-logo"></div>
+          <div class="rightnav"><a href="/merchants" class="hvr-pop">Merchants</a></div>
+          <div class="rightnav"><a href="/items" class="hvr-pop">Items</a></div>
+          <div class="rightnav"><a href="/invoices" class="hvr-pop">Invoices</a></div>
         </nav>
       </div>
     </header>
@@ -32,5 +32,8 @@
   <main>
     <h3><a href="/merchants/<%= @invoice.merchant.id %>" class="hvr-pop" id="name-merchant-link"><%= @invoice.merchant.name %></a></h3>
   </main>
+  <footer>
+    <p>Created by Keegan, JP, and Lucas<p>
+  </footer>
 </body>
 </html>

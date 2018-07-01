@@ -1,6 +1,13 @@
+require 'will_paginate'
+require 'will_paginate/active_record'
+
 class LittleShopApp < Sinatra::Base
+  configure do
+    register WillPaginate::Sinatra
+  end
+
   get '/merchants' do
-    @merchants = Merchant.all
+    @merchants = Merchant.paginate(:page => params[:page], :per_page => 30)
     erb :'merchants/index'
   end
 
@@ -20,7 +27,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/merchants/:id' do
-    @merchant = Merchant.find(params[:id])
+    @merchant = Merchant.where(id: params[:id]).includes(:items).first
     erb :'merchants/show'
   end
 
@@ -40,7 +47,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/items' do
-    @items = Item.all
+    @items = Item.paginate(:page => params[:page], :per_page => 40)
     erb :'items/index'
   end
 
@@ -64,7 +71,7 @@ class LittleShopApp < Sinatra::Base
                   created_at: current_day,
                   updated_at: current_day
                 )
-                
+
     redirect "/items/#{item_id}"
   end
 
@@ -89,9 +96,10 @@ class LittleShopApp < Sinatra::Base
   delete '/items/:id' do
     Item.where(id: params[:id]).destroy_all
     redirect '/items'
+  end
 
   get '/invoices' do
-    @invoices = Invoice.all
+    @invoices = Invoice.paginate(:page => params[:page], :per_page => 100)
     erb :'invoices/index'
   end
 
