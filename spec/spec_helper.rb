@@ -1,6 +1,7 @@
 ENV["RACK_ENV"] ||= "test"
 
 require 'simplecov'
+SimpleCov.start
 require 'bundler'
 Bundler.require(:default, :test)
 require File.expand_path("../../config/environment", __FILE__)
