@@ -23,6 +23,6 @@ class Merchant < ActiveRecord::Base
   end
 
   def self.highest_priced_item
-    Item.where(unit_price: Item.maximum(:unit_price)).first.merchant.name
+    Item.find_by(unit_price: Item.maximum(:unit_price)).merchant.name
   end
 end
