@@ -42,5 +42,16 @@
     <input type='submit' value='update invoice status' class='create_link'/>
     <a href="/invoices" class='create_link'>cancel</a>
   </form>
+    <td>
+      <% @invoice_items.each do |invoice_item| %>
+        <tr>
+          <%= invoice_item.item.id %>
+          <%= invoice_item.item.name %>
+          <%= invoice_item.quantity %>
+          <%= invoice_item.item.unit_price %></br>
+        </tr>
+      <% end %>
+    </td>
+  </main>
 </body>
 </html>
