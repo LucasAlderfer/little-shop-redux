@@ -1,0 +1,60 @@
+select {
+   -webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   background-position: 97% center;
+   background-repeat: no-repeat;
+   border: 1px solid #AAA;
+   color: #555;
+   font-size: .8em;
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+form label {
+  display: block;
+  padding: .2em;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.invoices_table form, .merchants_table form {
+  margin-bottom: 0;
+  padding-right: 0;
+}
+
+.form-align-buttons {
+  display: flex;
+}
+
+.new_merchant_field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.new_merchant_field form {
+  padding: 1em;
+}
+
+.form_reset {
+  margin-bottom: 0;
+  width: auto;
+}
+
+.form-align-buttons {
+  align-items: center;
+}

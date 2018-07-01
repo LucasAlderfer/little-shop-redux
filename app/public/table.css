@@ -1,0 +1,27 @@
+.merch-item-heading {
+  text-align: center;
+}
+
+.merchants_table, .invoices_table {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  padding-left: 20%;
+  padding-right: 20%;
+  border-bottom: 1px solid silver;
+}
+
+.invoices_table tr:nth-child(even), .merchants_table tr:nth-child(even) {
+  background-color: silver;
+}
+
+.invoices_table tr:nth-child(odd), .merchants_table tr:nth-child(odd) {
+  background-color: whitesmoke;
+}
+
+table {
+  border-collapse:collapse;
+}
