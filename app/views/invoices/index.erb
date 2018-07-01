@@ -20,13 +20,14 @@
     </header>
   </div>
   <section>
+    <a href="#" class="hvr-pop"><img src='/dashboard_logo.png' class="dash-board-logo" href="#"></a>
     <h2>INVOICES</h2>
   </section>
   <table class="invoices_table">
     <% @invoices.each do |invoice| %>
     <tr>
       <td><a href="/invoices/<%= invoice.id %>" class="hvr-pop" id="name-invoice-id"><%= invoice.id %></a></td>
-      <td class="create_link"><a href="/invoices/<%= invoice.id %>/edit" >edit</a></td>
+      <td><a href="/invoices/<%= invoice.id %>/edit" class="create_link" >edit</a></td>
       <td>
         <form action="/invoices/<%= invoice.id %>" method='POST'>
           <input type='hidden' name='_method' value='DELETE'>

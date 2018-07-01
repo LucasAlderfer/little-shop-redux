@@ -22,6 +22,14 @@ body {
   padding-right: 0;
 }
 
+form {
+  width: 50%;
+}
+
+.form-align-buttons {
+  display: flex;
+}
+
 main {
   display: flex;
   flex-direction: row;
@@ -50,7 +58,8 @@ main {
   max-height: 50px;
   max-width: 50px;
   position: absolute;
-  margin-left: .6%;
+  margin-left: 40%;
+  align-items: right;
 }
 
 figure {
@@ -300,6 +309,10 @@ img {
   margin: 0;
 }
 
+.form-align-buttons {
+  align-items: center;
+}
+
 select {
    -webkit-appearance: button;
    -webkit-border-radius: 2px;
@@ -312,7 +325,7 @@ select {
    background-repeat: no-repeat;
    border: 1px solid #AAA;
    color: #555;
-   font-size: inherit;
+   font-size: .8em;
    overflow: hidden;
    padding: 5px 10px;
    text-overflow: ellipsis;

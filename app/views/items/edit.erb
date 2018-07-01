@@ -39,8 +39,10 @@
       <input type='text' name='item[unit_price]' value=<%= @item.unit_price %>>
       <label for="fdescription">Image URL</label>
       <input type='text' name='item[image_url]' value="<%= @item.image_url%>">
-      <input type='submit' value='update item' class='create_link'/>
-      <a href='/items/<%= @item.id %>' class='create_link'>cancel</a>
+      <div class="form-align-buttons">
+        <a href='/items/<%= @item.id %>' class='create_link'>cancel</a>
+        <input type='submit' value='update item' class='create_link'/>
+      </div>
     </form>
   </main>
   <footer>

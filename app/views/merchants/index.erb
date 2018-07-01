@@ -28,7 +28,7 @@
     <% @merchants.each do |merchant| %>
     <tr>
       <td><a href="/merchants/<%= merchant.id %>" class="hvr-pop"><%= merchant.name %></a></td>
-      <td class="create_link"><a href="/merchants/<%= merchant.id %>/edit" >edit</a></td>
+      <td><a href="/merchants/<%= merchant.id %>/edit" class="create_link">edit</a></td>
       <td>
         <form action="/merchants/<%= merchant.id %>" method='POST'>
           <input type='hidden' name='_method' value='DELETE'>

@@ -27,8 +27,10 @@
     <input type='hidden' name='_method' value='PUT' />
       <label for="fname">Name</label>
       <input type='text' name='merchant[name]' placeholder=<%= @merchant.name %> value='update merchant'>
-      <input type='submit' value='update merchant' class='create_link'/>
-      <a href="/merchants/<%= @merchant.id %>" class='create_link'>cancel</a>
+      <div class="form-align-buttons">
+        <a href="/merchants/<%= @merchant.id %>" class='create_link'>cancel</a>
+        <input type='submit' value='update merchant' class='create_link'/>
+      </div>
     </form>
   </main>
   <footer>

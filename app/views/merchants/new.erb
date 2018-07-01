@@ -26,8 +26,10 @@
     <form action='/merchants' method='post'>
       <label for="fname">Name</label>
       <input type='text' name='merchant[name]' placeholder="Merchant Name">
-      <input type='submit' value='create' class='create_link'/>
-      <a href='/merchants' class='create_link'>cancel</a>
+      <div class="form-align-buttons">
+        <a href='/merchants' class='create_link'>cancel</a>
+        <input type='submit' value='create' class='create_link'/>
+      </div>
     </form>
   </main>
   <footer>
