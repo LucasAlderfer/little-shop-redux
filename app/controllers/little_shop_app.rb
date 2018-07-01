@@ -64,7 +64,7 @@ class LittleShopApp < Sinatra::Base
                   created_at: current_day,
                   updated_at: current_day
                 )
-                
+
     redirect "/items/#{item_id}"
   end
 
@@ -89,6 +89,7 @@ class LittleShopApp < Sinatra::Base
   delete '/items/:id' do
     Item.where(id: params[:id]).destroy_all
     redirect '/items'
+  end
 
   get '/invoices' do
     @invoices = Invoice.all
