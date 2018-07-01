@@ -1,29 +1,94 @@
 RSpec.describe Invoice do
   describe 'Validations' do
+    it 'is valid with all attributes' do
+      invoice = Invoice.create(id: 123, customer_id: 87654321, merchant_id: 12348765, status: 'pending', updated_at: '2012-12-10', created_at: '2012-11-10')
+
+      expect(invoice).to be_valid
+    end
     it 'is invalid without an id' do
-      invoice = Invoice.create(customer_id: 87654321, merchant_id: 12348765, updated_at: 2012-12-10, created_at: 2012-11-10)
+      invoice = Invoice.create(customer_id: 87654321, merchant_id: 12348765, updated_at: '2012-12-10', created_at: '2012-11-10')
 
       expect(invoice).to_not be_valid
     end
     it 'is invalid without a customer_id' do
-      invoice = Invoice.create(id: 12345678, merchant_id: 12348765, updated_at: 2012-12-10, created_at: 2012-11-10)
+      invoice = Invoice.create(id: 12345678, merchant_id: 12348765, updated_at: '2012-12-10', created_at: '2012-11-10')
 
       expect(invoice).to_not be_valid
     end
     it 'is invalid without a merchant_id date' do
-      invoice = Invoice.create(id: 12345678, customer_id: 87654321, merchant_id: 12348765, updated_at: 2012-12-10, created_at: 2012-11-10)
+      invoice = Invoice.create(id: 12345678, customer_id: 87654321, merchant_id: 12348765, updated_at: '2012-12-10', created_at: '2012-11-10')
 
       expect(invoice).to_not be_valid
     end
     it 'is invalid without an updated_at date' do
-      invoice = Invoice.create(id: 12345678, customer_id: 87654321, merchant_id: 12348765, created_at: 2012-11-10)
+      invoice = Invoice.create(id: 12345678, customer_id: 87654321, merchant_id: 12348765, created_at: '2012-11-10')
 
       expect(invoice).to_not be_valid
     end
     it 'is invalid without an created_at date' do
-      invoice = Invoice.create(id: 12345678, customer_id: 87654321, merchant_id: 12348765, updated_at: 2012-12-10)
+      invoice = Invoice.create(id: 12345678, customer_id: 87654321, merchant_id: 12348765, updated_at: '2012-12-10')
 
       expect(invoice).to_not be_valid
+    end
+  end
+  describe 'Class Methods' do
+    it 'can calculate each invoice status as a percent of total invoices' do
+      invoice_1 = Invoice.create(id: 1050, customer_id: 87654321, merchant_id: 12345678, status: 'pending', updated_at: '2012-12-10', created_at: '2012-11-10')
+      invoice_2 = Invoice.create(id: 1051, customer_id: 87654321, merchant_id: 12345678, status: 'shipped', updated_at: '2012-12-10', created_at: '2012-11-10')
+      invoice_3 = Invoice.create(id: 1052, customer_id: 87654321, merchant_id: 12345678, status: 'returned', updated_at: '2012-12-10', created_at: '2012-11-10')
+      invoice_4 = Invoice.create(id: 1053, customer_id: 87654321, merchant_id: 12345678, status: 'returned', updated_at: '2012-12-10', created_at: '2012-11-10')
+
+      expected = {'pending' => 25, 'shipped' => 25, 'returned' => 50}
+      
+      expect(Invoice.status_percentages).to eq(expected)
+    end
+    it 'can find the invoice with the highest associated unit_price' do
+      invoice_1 = Invoice.create(id: 1050, customer_id: 87654321, merchant_id: 12345678, status: 'pending', updated_at: '2012-12-10', created_at: '2012-11-10')
+      invoice_item_1a = invoice_1.invoice_items.create(id:1, item_id:263519844, quantity:5, unit_price:135, created_at: '2012-03-27', updated_at:'2012-03-27')
+      invoice_item_1b = invoice_1.invoice_items.create(id:2, item_id:263519847, quantity:7, unit_price:83639, created_at: '2012-03-27', updated_at:'2012-03-27')
+      invoice_2 = Invoice.create(id: 1051, customer_id: 87654321, merchant_id: 12345678, status: 'shipped', updated_at: '2012-12-10', created_at: '2012-11-10')
+      invoice_item_2a = invoice_2.invoice_items.create(id:3, item_id:263519841, quantity:4, unit_price:3453, created_at: '2012-03-27', updated_at:'2012-03-27')
+      invoice_item_2b = invoice_2.invoice_items.create(id:4, item_id:263519849, quantity:1, unit_price:9999999, created_at: '2012-03-27', updated_at:'2012-03-27')
+
+      expected = invoice_2.id
+      
+      expect(Invoice.highest_unit_price).to eq(expected)
+    end
+    it 'can find the invoice with the lowest associated unit_price' do
+      invoice_1 = Invoice.create(id: 1050, customer_id: 87654321, merchant_id: 12345678, status: 'pending', updated_at: '2012-12-10', created_at: '2012-11-10')
+      invoice_item_1a = invoice_1.invoice_items.create(id:1, item_id:263519844, quantity:5, unit_price:135, created_at: '2012-03-27', updated_at:'2012-03-27')
+      invoice_item_1b = invoice_1.invoice_items.create(id:2, item_id:263519847, quantity:7, unit_price:83639, created_at: '2012-03-27', updated_at:'2012-03-27')
+      invoice_2 = Invoice.create(id: 1051, customer_id: 87654321, merchant_id: 12345678, status: 'shipped', updated_at: '2012-12-10', created_at: '2012-11-10')
+      invoice_item_2a = invoice_2.invoice_items.create(id:3, item_id:263519841, quantity:4, unit_price:3453, created_at: '2012-03-27', updated_at:'2012-03-27')
+      invoice_item_2b = invoice_2.invoice_items.create(id:4, item_id:263519849, quantity:1, unit_price:9999999, created_at: '2012-03-27', updated_at:'2012-03-27')
+
+      expected = invoice_1.id
+      
+      expect(Invoice.lowest_unit_price).to eq(expected)
+    end
+    it 'can find the invoice with the highest associated quantity' do
+      invoice_1 = Invoice.create(id: 1050, customer_id: 87654321, merchant_id: 12345678, status: 'pending', updated_at: '2012-12-10', created_at: '2012-11-10')
+      invoice_item_1a = invoice_1.invoice_items.create(id:1, item_id:263519844, quantity:5, unit_price:135, created_at: '2012-03-27', updated_at:'2012-03-27')
+      invoice_item_1b = invoice_1.invoice_items.create(id:2, item_id:263519847, quantity:7, unit_price:83639, created_at: '2012-03-27', updated_at:'2012-03-27')
+      invoice_2 = Invoice.create(id: 1051, customer_id: 87654321, merchant_id: 12345678, status: 'shipped', updated_at: '2012-12-10', created_at: '2012-11-10')
+      invoice_item_2a = invoice_2.invoice_items.create(id:3, item_id:263519841, quantity:4, unit_price:3453, created_at: '2012-03-27', updated_at:'2012-03-27')
+      invoice_item_2b = invoice_2.invoice_items.create(id:4, item_id:263519849, quantity:1, unit_price:9999999, created_at: '2012-03-27', updated_at:'2012-03-27')
+
+      expected = invoice_1.id
+      
+      expect(Invoice.highest_quantity).to eq(expected)
+    end
+    it 'can find the invoice with the lowest associated quantity' do
+      invoice_1 = Invoice.create(id: 1050, customer_id: 87654321, merchant_id: 12345678, status: 'pending', updated_at: '2012-12-10', created_at: '2012-11-10')
+      invoice_item_1a = invoice_1.invoice_items.create(id:1, item_id:263519844, quantity:5, unit_price:135, created_at: '2012-03-27', updated_at:'2012-03-27')
+      invoice_item_1b = invoice_1.invoice_items.create(id:2, item_id:263519847, quantity:7, unit_price:83639, created_at: '2012-03-27', updated_at:'2012-03-27')
+      invoice_2 = Invoice.create(id: 1051, customer_id: 87654321, merchant_id: 12345678, status: 'shipped', updated_at: '2012-12-10', created_at: '2012-11-10')
+      invoice_item_2a = invoice_2.invoice_items.create(id:3, item_id:263519841, quantity:4, unit_price:3453, created_at: '2012-03-27', updated_at:'2012-03-27')
+      invoice_item_2b = invoice_2.invoice_items.create(id:4, item_id:263519849, quantity:1, unit_price:9999999, created_at: '2012-03-27', updated_at:'2012-03-27')
+
+      expected = invoice_2.id
+      
+      expect(Invoice.lowest_quantity).to eq(expected)
     end
   end
   describe 'Instance Methods' do
