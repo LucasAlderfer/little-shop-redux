@@ -39,5 +39,12 @@
   <footer>
     <p>Created by Keegan, JP, and Lucas<p>
   </footer>
+  <div class="styled_pagination">
+    <div class="page_info">
+      <%= page_entries_info @invoices %>
+    <br/>
+      <%= will_paginate @invoices, :container => false %>
+    </div>
+  </div>
 </body>
 </html>

@@ -99,7 +99,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/invoices' do
-    @invoices = Invoice.all
+    @invoices = Invoice.paginate(:page => params[:page], :per_page => 100)
     erb :'invoices/index'
   end
 
