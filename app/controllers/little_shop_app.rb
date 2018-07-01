@@ -47,7 +47,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/items' do
-    @items = Item.all
+    @items = Item.paginate(:page => params[:page], :per_page => 40)
     erb :'items/index'
   end
 

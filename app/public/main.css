@@ -37,6 +37,13 @@ main {
   width: 85%;
 }
 
+.shop-logo {
+  height: auto;
+  width: auto;
+  max-height: 50px;
+  max-width: 50px;
+}
+
 figure {
   display: flex;
   flex-direction: column;
@@ -91,6 +98,7 @@ a:hover {
   font-weight: 900;
   font-size: 2em;
   flex-grow: 1;
+  vertical-align: middle;
 }
 
 .leftnav a {
@@ -105,7 +113,7 @@ a:hover {
 }
 
 @-webkit-keyframes hvr-pop {
-  50% {
+  1% {
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
   }
@@ -165,6 +173,10 @@ section {
   padding: 1em;
 }
 
+.merch-item-heading {
+  text-align: center;
+}
+
 .create_link {
   display: inline-block;
   position: relative;
@@ -197,10 +209,10 @@ section {
 
 .create_link:hover {
   color: white;
-  top: -10px;
-  box-shadow: 0px 10px 10px rgba( 15, 1, 60, 0.2 );
+  top: -2px;
+  box-shadow: 0px 5px 5px rgba( 15, 1, 60, 0.2 );
 
-  transform: rotateX(20deg);
+  transform: rotateX(12deg);
 }
 
 .create_link:active {
@@ -222,6 +234,7 @@ h2 {
   z-index: 9999;
   padding-left: 20%;
   padding-right: 20%;
+  border-bottom: 1px solid silver;
 }
 
 .invoices_table tr:nth-child(even), .merchants_table tr:nth-child(even) {
