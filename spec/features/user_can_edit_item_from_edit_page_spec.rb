@@ -44,7 +44,7 @@ RSpec.describe 'a visitor' do
 
       click_on('update item')
       expect(current_path).to eq('/items/12345')
-      expect(page).to have_content('897234')
+      expect(page).to have_content('8972.34')
     end
     it 'should update item image_url form by clicking on update' do
       merchant_1 = Merchant.create(name: "JP", id: 1234, updated_at: "1234-12-12", created_at: "1333-12-12")

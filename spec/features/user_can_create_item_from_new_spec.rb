@@ -22,6 +22,8 @@ RSpec.describe 'a visitor' do
 
       expect(current_path).to eq('/items/1')
       expect(page).to have_content('AnItem')
+      expect(page).to have_content('1.23')
+      expect(page).to have_content('Good Item')
     end
   end
 end
