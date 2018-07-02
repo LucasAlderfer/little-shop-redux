@@ -66,9 +66,9 @@ RSpec.describe Merchant do
 
         merchant_2 = Merchant.create(id: 125, name: "Shopin1905", updated_at: "2012-12-10", created_at: "2012-11-10")
         item_2a = merchant_2.items.create(id: 1239, name: 'AnItem', description: 'Good Item', unit_price: 1000, image_url: 'anything', created_at: '2001-06-27', updated_at: '2002-06-28')
-  
-        expected = merchant_1.name
-  
+
+        expected = merchant_1
+
         expect(Merchant.most_items).to eq(expected)
       end
       it 'can calculate the merchant with highest price item and output its name' do
@@ -79,9 +79,9 @@ RSpec.describe Merchant do
 
         merchant_2 = Merchant.create(id: 125, name: "Shopin1905", updated_at: "2012-12-10", created_at: "2012-11-10")
         item_2a = merchant_2.items.create(id: 1239, name: 'AnItem', description: 'Good Item', unit_price: 9000, image_url: 'anything', created_at: '2001-06-27', updated_at: '2002-06-28')
-  
-        expected = merchant_2.name
-  
+
+        expected = merchant_2
+
         expect(Merchant.highest_priced_item).to eq(expected)
       end
     end

@@ -12,7 +12,7 @@
     <header>
       <div class="navcontainer">
         <nav class="fixednav">
-          <div class="leftnav"><a href="/">LittleSHOP</a><img src='/little_shop_logo.png' class="shop-logo"></div>
+          <div class="leftnav"><a href="#">LittleSHOP</a><img src='/little_shop_logo.png' class="shop-logo"></div>
           <div class="rightnav"><a href="/merchants" class="hvr-pop">Merchants</a></div>
           <div class="rightnav"><a href="/items" class="hvr-pop">Items</a></div>
           <div class="rightnav"><a href="/invoices" class="hvr-pop">Invoices</a></div>
@@ -20,29 +20,22 @@
       </div>
     </header>
   </div>
-  <section>
-    <div class="dashboard hvr-pop">
-      <a href="/items-dashboard"><i class="fas fa-chart-pie hvr-pop"></i><span id="dashboard-label">Dashboard</span></a>
-    </div>
-    <h2>ITEMS</h2>
-    <a href='/items/new' class="create_link">Create A New Item</a>
-  </section>
-  <main>
-    <% @items.each do |item| %>
-    <a href="items/<%= item.id %>" class="reset-link">
-    <article class="item-container">
-          <img src='<%= item.image_url %>'/>
-          <p class="item-text"> <%= item.name %></p>
-          <p class="item-text"><strong>Price:</strong> <%= item.unit_price %></p></a>
-      </article>
-      <% end %>
-  </main>
-  <div class="styled_pagination">
-    <div class="page_info">
-      <%= page_entries_info @items %>
-    <br/>
-      <%= will_paginate @items, :container => false %>
-    </div>
+  <div class="index-page-container">
+    <a href="/merchants" class="reset-link" id="merchant-index-link">
+    <article class="index-page hvr-pop" >
+      <i class="fas fa-store-alt"></i>
+      <h2>Merchant Index</h2>
+    </article>
+    <a href="/items" class="reset-link" id="item-index-link">
+    <article class="index-page hvr-pop">
+      <i class="fas fa-box-open"></i>
+      <h2>Item Index</h2>
+    </article>
+    <a href="/invoices" class="reset-link" id="invoices-index-link">
+    <article class="index-page hvr-pop">
+      <i class="fas fa-file-invoice"></i>
+      <h2>Invoice Index</h2>
+    </article>
   </div>
   <footer>
     <p>Created by Keegan, JP, and Lucas<p>

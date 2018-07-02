@@ -6,6 +6,10 @@ class LittleShopApp < Sinatra::Base
     register WillPaginate::Sinatra
   end
 
+  get '/' do
+    erb :'index'
+  end
+
   get '/merchants' do
     @merchants = Merchant.paginate(:page => params[:page], :per_page => 30)
     erb :'merchants/index'
@@ -44,6 +48,13 @@ class LittleShopApp < Sinatra::Base
   delete '/merchants/:id' do
     Merchant.where(id: params[:id]).destroy_all
     redirect '/merchants'
+  end
+
+  get '/merchants-dashboard' do
+    @merchants = Merchant.paginate(:page => params[:page], :per_page => 28)
+    @most_items = Merchant.most_items
+    @highest_price = Merchant.highest_priced_item
+    erb :'merchants/dashboard'
   end
 
   get '/items' do
