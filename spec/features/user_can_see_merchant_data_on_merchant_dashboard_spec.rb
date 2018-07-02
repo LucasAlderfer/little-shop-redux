@@ -44,8 +44,8 @@ RSpec.describe 'a visitor' do
       item_2a = merchant_2.items.create(id: 1239, name: 'AnItem', description: 'Good Item', unit_price: 9000, image_url: 'anything', created_at: '2001-06-27', updated_at: '2002-06-28')
 
       expected_1 = merchant_1.total_items
-      expected_2 = merchant_1.average_item_price
-      expected_3 = merchant_1.total_items_price
+      expected_2 = Money.new(merchant_1.average_item_price)
+      expected_3 = Money.new(merchant_1.total_items_price)
 
       visit '/merchants-dashboard'
 
@@ -85,7 +85,7 @@ RSpec.describe 'a visitor' do
         click_link(merchant_2.name)
       end
 
-      expect(current_path).to eq('/merchants/123')
+      expect(current_path).to eq('/merchants/125')
     end
   end
 end

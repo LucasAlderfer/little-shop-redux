@@ -29,7 +29,7 @@
     </article>
     <article id="merchant-highest-price">
       <h3>Merchant with highest price item:</h3>
-      <a href="/merchants/<%= @most_items.id %>" class="create_link"><%= @highest_price.name %></a>
+      <a href="/merchants/<%= @highest_price.id %>" class="create_link"><%= @highest_price.name %></a>
     </article>
   </div>
   <main>
@@ -37,8 +37,8 @@
       <article class="merchant-profile item-container">
       <a href="/merchants/<%= merchant.id %>" class="create_link"><%= merchant.name %></a>
       <p><strong>Item count:</strong> <%= merchant.total_items %></p>
-      <p><strong>Average item price:</strong> <%= merchant.average_item_price %></p>
-      <p><strong>Total cost of items:</strong> <%= merchant.total_items_price %></p>
+      <p><strong>Average item price:</strong> <%= Money.new(merchant.average_item_price) %></p>
+      <p><strong>Total cost of items:</strong> <%= Money.new(merchant.total_items_price) %></p>
     </article>
     <% end %>
   </main>
