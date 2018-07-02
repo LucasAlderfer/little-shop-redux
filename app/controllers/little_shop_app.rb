@@ -126,4 +126,13 @@ class LittleShopApp < Sinatra::Base
     Invoice.update(params[:id].to_i, params[:invoice])
     redirect "/invoices/#{params[:id]}"
   end
+
+  get '/invoices-dashboard' do
+    @invoices = Invoice.all
+    @high_unit_price = Invoice.highest_unit_price
+    @low_unit_price = Invoice.lowest_unit_price
+    @high_quantity = Invoice.highest_quantity
+    @low_quantity = Invoice.lowest_quantity
+    erb :'/invoices/dashboard'
+  end
 end
