@@ -86,6 +86,14 @@ class LittleShopApp < Sinatra::Base
     redirect "/items/#{item_id}"
   end
 
+  get '/items-dashboard' do
+    @item_count = Item.total_count
+    @item_avg_price = Item.average_price
+    @newest_item = Item.newest
+    @oldest_item = Item.oldest
+    erb :'items/dashboard'
+  end
+
   get '/items/:id' do
     @item = Item.where(id: params[:id]).includes(:merchant).first
     erb :'items/show'
