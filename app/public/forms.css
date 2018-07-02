@@ -37,6 +37,7 @@ input[type=text], select {
 
 .form-align-buttons {
   display: flex;
+  justify-content: space-between;
 }
 
 .new_merchant_field {
@@ -53,8 +54,4 @@ input[type=text], select {
 .form_reset {
   margin-bottom: 0;
   width: auto;
-}
-
-.form-align-buttons {
-  align-items: center;
 }

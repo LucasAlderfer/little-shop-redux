@@ -81,9 +81,20 @@
   background: rgb(240,205,165);
 }
 
-.fa-chart-pie {
-  font-size: 3em;
+.dashboard {
   position: absolute;
+  left: 20px;
+  padding-top: 20px;
+}
+
+.fas.fa-chart-pie {
+  font-size: 2em;
   color: #FFD3AA;
-  margin-left: 50%;
+}
+
+#dashboard-label {
+  padding-left: 10px;
+  padding-top: 3px;
+  font-family: 'Comfortaa', cursive;
+  font-weight: 900;
 }

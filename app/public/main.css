@@ -5,6 +5,29 @@
 @import url("forms.css");
 @import url("pagination.css");
 
+
+div.special-merchant-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: whitesmoke;
+  padding-bottom: 15px;
+}
+
+article.merchant-profile.item-container {
+  text-align: center;
+  border-bottom: 4px solid teal;
+  border-top: 4px solid teal;
+  border-radius: 15%;
+}
+
+#merchant-most-items, #merchant-highest-price {
+  text-align: center;
+}
+
+#merchant-most-items a, #merchant-highest-price a {
+  font-size: 1.2em;
+}
+
 .center-heading {
   text-align: center;
 }

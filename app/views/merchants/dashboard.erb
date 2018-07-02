@@ -22,21 +22,35 @@
     <section>
       <h2>Merchants Dashboard</h2>
     </section>
-  <article id="merchant-most-items">
-    <h3>Merchant with most items:</h3>
-    <a href="/merchants/<%= @most_items.id %>">><%= @most_items.name %></a>
-  </article>
-  <article id="merchant-highest-price">
-    <h3>Merchant with highest price item:</h3>
-    <a href="/merchants/<%= @most_items.id %>"><%= @highest_price.name %></a>
-  </article>
-  <% @merchants.each do |merchant| %>
-    <div class="merchant-profile">
-      <a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a>
-      <p>Item count: <%= merchant.total_items %></p>
-      <p>Average item price: <%= merchant.average_item_price %></p>
-      <p>Total cost of items: <%= merchant.total_items_price %></p>
+  <div class="special-merchant-container">
+    <article id="merchant-most-items">
+      <h3>Merchant with most items:</h3>
+      <a href="/merchants/<%= @most_items.id %>" class="create_link"><%= @most_items.name %></a>
+    </article>
+    <article id="merchant-highest-price">
+      <h3>Merchant with highest price item:</h3>
+      <a href="/merchants/<%= @most_items.id %>" class="create_link"><%= @highest_price.name %></a>
+    </article>
+  </div>
+  <main>
+    <% @merchants.each do |merchant| %>
+      <article class="merchant-profile item-container">
+      <a href="/merchants/<%= merchant.id %>" class="create_link"><%= merchant.name %></a>
+      <p><strong>Item count:</strong> <%= merchant.total_items %></p>
+      <p><strong>Average item price:</strong> <%= merchant.average_item_price %></p>
+      <p><strong>Total cost of items:</strong> <%= merchant.total_items_price %></p>
+    </article>
+    <% end %>
+  </main>
+  <div class="styled_pagination">
+    <div class="page_info">
+      <%= page_entries_info @merchants %>
+    <br/>
+      <%= will_paginate @merchants, :container => false %>
     </div>
-  <% end %>
+  </div>
+  <footer>
+    <p>Created by Keegan, JP, and Lucas<p>
+  </footer>
   </body>
 </html>

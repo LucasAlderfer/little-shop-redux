@@ -18,7 +18,6 @@ body {
   min-height: 100%;
 }
 
-
 form {
   width: 40%;
 }
@@ -45,7 +44,7 @@ a {
 }
 
 a:hover {
-  color: blue;
+  color: #585858;
 }
 
 td {
@@ -55,10 +54,6 @@ td {
 
 td:first-child {
   text-align: left;
-}
-
-a:first-child {
-  margin-right: auto;
 }
 
 section {
