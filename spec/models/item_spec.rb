@@ -77,9 +77,7 @@ RSpec.describe Item do
       item_2 = Item.create(id: 1236, name: 'AnotherItem', description: 'Good Item', unit_price: 2000, image_url: 'anything', merchant_id: 12344105, created_at: '2018-06-27', updated_at: '2018-06-28')
       item_3 = Item.create(id: 1237, name: 'OtherItem', description: 'Good Item', unit_price: 3000, image_url: 'anything', merchant_id: 12344105, created_at: '2018-06-30', updated_at: '2018-06-30')
 
-      expected = (item_1.unit_price + item_2.unit_price + item_3.unit_price) / Item.count
-
-      expect(Item.average_price).to eq(expected)
+      expect(Item.average_price).to eq(2000)
     end
     it 'can find the most recently created item' do
       item_1 = Item.create(id: 1235, name: 'AnItem', description: 'Good Item', unit_price: 1000, image_url: 'anything', merchant_id: 12344105, created_at: '2001-06-27', updated_at: '2002-06-28')
