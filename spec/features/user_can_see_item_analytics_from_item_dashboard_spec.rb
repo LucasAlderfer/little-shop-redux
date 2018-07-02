@@ -1,4 +1,13 @@
 RSpec.describe 'a visitor' do
+  context 'visiting /items/' do
+    it 'can click on the dashboard symbol and render the dashboard page' do
+      Item.create(id: 12345, name: "AnItem", description: 'Good Item', unit_price: 12345, merchant_id: 12345678, image_url: 'anything', created_at: '2018-06-27', updated_at: '2018-06-28')
+      visit '/items-dashboard'
+
+      click_link('.dash-board-logo')
+      expect(current_path).to eq('/items-dashboard')
+    end
+  end
   context 'visiting /items-dashboard' do
     it 'can visit /merchants by clicking on Merchants' do
       Item.create(id: 12345, name: "AnItem", description: 'Good Item', unit_price: 12345, merchant_id: 12345678, image_url: 'anything', created_at: '2018-06-27', updated_at: '2018-06-28')
