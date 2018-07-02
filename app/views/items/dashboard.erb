@@ -4,7 +4,7 @@
   <title>Little Shop</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="/main.css">
+  <link rel="stylesheet" type="text/css" href="/itemdashboard.css">
   <link href="https://fonts.googleapis.com/css?family=Comfortaa|Didact+Gothic|Monoton" rel="stylesheet">
 </head>
 <body>
@@ -21,26 +21,17 @@
     </header>
   </div>
   <section>
-    <a href="#" class="hvr-pop"><img src='/dashboard_logo.png' class="dash-board-logo" href="#"></a>
-    <h2>ITEMS</h2>
-    <a href='/items/new' class="create_link">Create A New Item</a>
+    <h2>Items Dashboard</h2>
   </section>
+  <h2 class="merch-item-heading">Merchant Items</h2>
   <main>
-    <% @items.each do |item| %>
-    <article class="item-container">
-          <img src='<%= item.image_url %>'/>
-          <p class="item-text"><a href="/items/<%= item.id %>" class="hvr-pop"><%= item.name %></a></p>
-          <p class="item-text"><strong>Price:</strong> <%= item.unit_price %></p>
-      </article>
-      <% end %>
-  </main>
-  <div class="styled_pagination">
-    <div class="page_info">
-      <%= page_entries_info @items %>
-    <br/>
-      <%= will_paginate @items, :container => false %>
+    <div>
+      <h3>Total Item Count</h3>
+
     </div>
-  </div>
+    <h3>Avg Price Per Item</h3>
+    <h3>Total Item Count</h3>
+  </main>
   <footer>
     <p>Created by Keegan, JP, and Lucas<p>
   </footer>

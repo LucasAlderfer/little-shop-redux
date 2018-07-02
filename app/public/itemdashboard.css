@@ -1,0 +1,29 @@
+section {
+  border-bottom: 2px solid #6A959D;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  padding: 1em;
+}

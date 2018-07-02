@@ -126,4 +126,8 @@ class LittleShopApp < Sinatra::Base
     Invoice.update(params[:id].to_i, params[:invoice])
     redirect "/invoices/#{params[:id]}"
   end
+
+  get '/items/dashboard' do
+    erb :'items/dashboard'
+  end
 end
