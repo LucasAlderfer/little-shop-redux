@@ -19,10 +19,10 @@ class Merchant < ActiveRecord::Base
   def self.most_items
     all.max_by do |merchant|
       merchant.total_items
-    end.name
+    end
   end
 
   def self.highest_priced_item
-    Item.find_by(unit_price: Item.maximum(:unit_price)).merchant.name
+    Item.find_by(unit_price: Item.maximum(:unit_price)).merchant
   end
 end

@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Little Shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Didact+Gothic|Monoton" rel="stylesheet">
+  </head>
+  <body>
+    <div class="header">
+      <header>
+        <div class="navcontainer">
+          <nav class="fixednav">
+            <div class="leftnav"><a href="#">LittleSHOP</a><img src='/little_shop_logo.png' class="shop-logo"></div>
+            <div class="rightnav"><a href="/merchants" class="hvr-pop">Merchants</a></div>
+            <div class="rightnav"><a href="/items" class="hvr-pop">Items</a></div>
+            <div class="rightnav"><a href="/invoices" class="hvr-pop">Invoices</a></div>
+          </nav>
+        </div>
+      </header>
+    </div>
+    <section>
+      <h2>Merchants Dashboard</h2>
+    </section>
+  <article id="merchant-most-items">
+    <h3>Merchant with most items:</h3>
+    <a href="/merchants/<%= @most_items.id %>">><%= @most_items.name %></a>
+  </article>
+  <article id="merchant-highest-price">
+    <h3>Merchant with highest price item:</h3>
+    <a href="/merchants/<%= @most_items.id %>"><%= @highest_price.name %></a>
+  </article>
+  <% @merchants.each do |merchant| %>
+    <div class="merchant-profile">
+      <a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a>
+      <p>Item count: <%= merchant.total_items %></p>
+      <p>Average item price: <%= merchant.average_item_price %></p>
+      <p>Total cost of items: <%= merchant.total_items_price %></p>
+    </div>
+  <% end %>
+  </body>
+</html>
