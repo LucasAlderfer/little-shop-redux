@@ -1,3 +1,10 @@
+body {
+  font-family: 'Didact Gothic', sans-serif;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
+
 section {
   border-bottom: 2px solid #6A959D;
   display: flex;
@@ -25,5 +32,119 @@ footer {
 a {
   text-decoration: none;
   color: black;
-  padding: 1em;
+  padding: 0.6em;
+}
+
+h1 {
+  display: block;
+}
+
+@-webkit-keyframes hvr-pop {
+  1% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+@keyframes hvr-pop {
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+
+.hvr-pop {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.hvr-pop:hover, .hvr-pop:focus, .hvr-pop:active {
+  -webkit-animation-name: hvr-pop;
+  animation-name: hvr-pop;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+.fixednav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 6em;
+  background-color: #6A959D;
+}
+
+.leftnav {
+  font-family: 'Comfortaa', cursive;
+  font-weight: 900;
+  font-size: 2em;
+  flex-grow: 1;
+  vertical-align: middle;
+}
+
+.leftnav a {
+  color: #FFD3AA;
+  text-decoration: none;
+}
+
+.rightnav a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.6em;
+}
+
+.shop-logo {
+  height: auto;
+  width: auto;
+  max-height: 50px;
+  max-width: 50px;
+}
+
+.item-dashboard-heading {
+  text-align: center;
+}
+
+.item-dashboard-container {
+  width: 180px;
+  height: 190px;
+  border: solid;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.item-dash-content {
+  font-size: 250%;
+  display: flex;
+  justify-content: center;
+  line-height: 220%;
+}
+
+.item-age-header {
+  text-decoration: underline;
+  margin-right: auto;
+  margin-left: 15px;
+}
+
+.item-age-content {
+    font-size: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-left: 15px;
+    font-size: 12px;
+}
+
+#item-age-container-header {
+  -webkit-margin-after: 0.3em;
 }

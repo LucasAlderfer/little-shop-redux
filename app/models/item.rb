@@ -27,10 +27,10 @@ class Item < ActiveRecord::Base
   end
 
   def self.newest
-    Item.where(created_at: Item.maximum(:created_at)).first.name
+    where(created_at: Item.maximum(:created_at)).first
   end
 
   def self.oldest
-    Item.where(created_at: Item.minimum(:created_at)).first.name
+    where(created_at: Item.minimum(:created_at)).first
   end
 end

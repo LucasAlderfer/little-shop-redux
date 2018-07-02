@@ -23,14 +23,28 @@
   <section>
     <h2>Items Dashboard</h2>
   </section>
-  <h2 class="merch-item-heading">Merchant Items</h2>
   <main>
-    <div>
+    <div class='item-dashboard-container'>
       <h3>Total Item Count</h3>
-
+      <div class='item-dash-content' id='item-count'><%= @item_count %></div>
     </div>
-    <h3>Avg Price Per Item</h3>
-    <h3>Total Item Count</h3>
+    <div class='item-dashboard-container'>
+      <h3>Avg Price Per Item</h3>
+      <div class='item-dash-content' id='item-avg-price'>$<%= (@item_avg_price/100).round(2) %></div>
+    </div>
+    <div class='item-dashboard-container'>
+      <h3 id='item-age-container-header'>Item by Age</h3>
+        <div class='item-age-header'>Newest</div>
+        <div class='item-age-content' id='new-item'>
+          <div>Item: </div>
+          <a href="/items/<%= @newest_item.id %>"><%= @newest_item.name %></a>
+        </div>
+        <div class='item-age-header'>Oldest</div>
+        <div class='item-age-content' id='old-item'>
+          <div>Item: </div>
+          <a href="/items/<%= @oldest_item.id %>">Item: <%= @oldest_item.name %></a>
+        </div>
+    </div>
   </main>
   <footer>
     <p>Created by Keegan, JP, and Lucas<p>
