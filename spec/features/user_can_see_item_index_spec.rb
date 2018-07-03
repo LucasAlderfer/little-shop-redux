@@ -16,5 +16,12 @@ RSpec.describe 'a visitor' do
 
       expect(current_path).to eq('/items/new')
     end
+    it 'should link to / when littleshop is clicked' do
+      visit '/items'
+
+      click_link('LittleSHOP')
+
+      expect(current_path).to eq('/')
+    end
   end
 end
