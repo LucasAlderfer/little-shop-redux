@@ -76,7 +76,7 @@ class LittleShopApp < Sinatra::Base
                   id: item_id,
                   name: params[:item][:name],
                   description: params[:item][:description],
-                  unit_price: params[:item][:description],
+                  unit_price: params[:item][:unit_price],
                   image_url: params[:item][:image_url],
                   merchant_id: params[:item][:merchant_id],
                   created_at: current_day,
