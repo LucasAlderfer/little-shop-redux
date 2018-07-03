@@ -33,7 +33,7 @@
   background-color: whitesmoke;
 }
 
-.merchants_table tr:hover {
+.merchants_table tr:hover, .invoices_table tr:hover {
   color: white;
   box-shadow: 0px 1px 1px rgba( 15, 1, 0, 0.1 );
   transform: rotateX(1deg);
@@ -56,5 +56,3 @@ table tr .invoice-th {
 tr th:nth-child(2) {
   width: 50%;
 }
-
-/* style= "width: 50%;" */
