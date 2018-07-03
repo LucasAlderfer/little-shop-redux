@@ -70,10 +70,7 @@ class LittleShopApp < Sinatra::Base
   post '/items' do
     current_day = Time.now.strftime("%Y-%m-%d")
 
-    item_id = Item.generate_id
-
-    Item.create(
-                  id: item_id,
+    item = Item.create(
                   name: params[:item][:name],
                   description: params[:item][:description],
                   unit_price: params[:item][:unit_price],
@@ -83,7 +80,7 @@ class LittleShopApp < Sinatra::Base
                   updated_at: current_day
                 )
 
-    redirect "/items/#{item_id}"
+    redirect "/items/#{item.id}"
   end
 
   get '/items-dashboard' do

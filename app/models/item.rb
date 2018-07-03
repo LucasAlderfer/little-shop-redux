@@ -2,7 +2,7 @@ require 'money'
 
 class Item < ActiveRecord::Base
 
-  validates_presence_of :id, :name, :description, :unit_price, :merchant_id, :created_at, :updated_at, :image_url
+  validates_presence_of :name, :description, :unit_price, :merchant_id, :created_at, :updated_at, :image_url
 
   composed_of :unit_price,
               :class_name => 'Money',
@@ -16,14 +16,6 @@ class Item < ActiveRecord::Base
 
   def merchant_name
     merchant.name
-  end
-
-  def self.generate_id
-    if Item.all.empty?
-      1
-    else
-      Item.last.id + 1
-    end
   end
 
   def self.total_count
