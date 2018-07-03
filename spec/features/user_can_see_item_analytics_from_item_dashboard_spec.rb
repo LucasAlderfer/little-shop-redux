@@ -47,7 +47,7 @@ RSpec.describe 'a visitor' do
       visit '/items-dashboard'
 
       within('#item-avg-price') do
-        expect(page).to have_content('$12.53')
+        expect(page).to have_content('12.53')
       end
     end
     it 'displays the newest item' do

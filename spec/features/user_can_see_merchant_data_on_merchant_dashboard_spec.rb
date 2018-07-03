@@ -50,7 +50,6 @@ RSpec.describe 'a visitor' do
 
       visit '/merchants-dashboard'
 
-      save_and_open_page
 
       expect(page).to have_content("#{merchant.name}")
       expect(page).to have_content("Item count: #{expected_total_items}")

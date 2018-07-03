@@ -26,38 +26,6 @@ RSpec.describe Merchant do
       expect(merchant).to be_valid
     end
   end
-  # describe 'Instance Methods' do
-  #   xit 'can calculate total number of items for this merchant' do
-  #     merchant = Merchant.create(id: 123, name: "Shopin1901", updated_at: "2012-12-10", created_at: "2012-11-10")
-  #     item_1 = merchant.items.create(id: 1235, name: 'AnItem', description: 'Good Item', unit_price: 1000, image_url: 'anything', created_at: '2001-06-27', updated_at: '2002-06-28')
-  #     item_2 = merchant.items.create(id: 1236, name: 'AnotherItem', description: 'Good Item', unit_price: 2000, image_url: 'anything', created_at: '2018-06-27', updated_at: '2018-06-28')
-  #     item_3 = merchant.items.create(id: 1237, name: 'OtherItem', description: 'Good Item', unit_price: 3000, image_url: 'anything', created_at: '2018-06-30', updated_at: '2018-06-30')
-  #
-  #     expected = merchant.items.count
-  #
-  #     expect(merchant.total_items).to eq(expected)
-  #   end
-  #   xit 'can calculate average price for all items from this merchant' do
-  #     merchant = Merchant.create(id: 123, name: "Shopin1901", updated_at: "2012-12-10", created_at: "2012-11-10")
-  #     item_1 = merchant.items.create(id: 1235, name: 'AnItem', description: 'Good Item', unit_price: 1000, image_url: 'anything', created_at: '2001-06-27', updated_at: '2002-06-28')
-  #     item_2 = merchant.items.create(id: 1236, name: 'AnotherItem', description: 'Good Item', unit_price: 2000, image_url: 'anything', created_at: '2018-06-27', updated_at: '2018-06-28')
-  #     item_3 = merchant.items.create(id: 1237, name: 'OtherItem', description: 'Good Item', unit_price: 3000, image_url: 'anything', created_at: '2018-06-30', updated_at: '2018-06-30')
-  #
-  #     expected = 2000
-  #
-  #     expect(merchant.average_item_price).to eq(expected)
-  #   end
-  #   xit 'can calculate total price for all items from this merchant' do
-  #     merchant = Merchant.create(id: 123, name: "Shopin1901", updated_at: "2012-12-10", created_at: "2012-11-10")
-  #     item_1 = merchant.items.create(id: 1235, name: 'AnItem', description: 'Good Item', unit_price: 1000, image_url: 'anything', created_at: '2001-06-27', updated_at: '2002-06-28')
-  #     item_2 = merchant.items.create(id: 1236, name: 'AnotherItem', description: 'Good Item', unit_price: 2000, image_url: 'anything', created_at: '2018-06-27', updated_at: '2018-06-28')
-  #     item_3 = merchant.items.create(id: 1237, name: 'OtherItem', description: 'Good Item', unit_price: 3000, image_url: 'anything', created_at: '2018-06-30', updated_at: '2018-06-30')
-  #
-  #     expected = 6000
-  #
-  #     expect(merchant.total_items_price).to eq(expected)
-  #   end
-  # end
   describe 'Class Methods' do
     it 'dashboard_information can calculate item_count, average_item_price, total_items_price for each merchant' do
       merchant = Merchant.create(id: 123, name: "Shopin1901", updated_at: "2012-12-10", created_at: "2012-11-10")

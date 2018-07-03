@@ -30,7 +30,7 @@
     </div>
     <div class='item-dashboard-container'>
       <h3>Avg Price Per Item</h3>
-      <div class='item-dash-content' id='item-avg-price'>$<%= (@item_avg_price/100).round(2) %></div>
+      <div class='item-dash-content' id='item-avg-price'><%= Money.new(@item_avg_price) %></div>
     </div>
     <div class='item-dashboard-container'>
       <h3 id='item-age-container-header'>Item by Age</h3>
