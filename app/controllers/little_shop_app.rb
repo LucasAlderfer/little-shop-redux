@@ -51,7 +51,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/merchants-dashboard' do
-    @merchants = Merchant.paginate(:page => params[:page], :per_page => 28)
+    @merchants = Merchant.dashboard_information.paginate(:page => params[:page], :per_page => 28)
     @most_items = Merchant.most_items
     @highest_price = Merchant.highest_priced_item
     erb :'merchants/dashboard'
