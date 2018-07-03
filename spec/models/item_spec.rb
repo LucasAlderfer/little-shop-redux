@@ -22,11 +22,6 @@ RSpec.describe Item do
 
       expect(item).to_not be_valid
     end
-    it 'is invalid without an id' do
-      item = Item.new(name: 'AnItem', description: 'Good Item', unit_price: 12345, image_url: 'anything', merchant_id: 12344105, created_at: 2018-06-27, updated_at: 2018-06-29)
-
-      expect(item).to_not be_valid
-    end
     it 'is invalid without a merchant id' do
       item = Item.new(id: 12345, name: 'AnItem', description: 'Good Item', unit_price: 12345, image_url: 'anything', created_at: 2018-06-27, updated_at: 2018-06-29)
 
@@ -56,13 +51,6 @@ RSpec.describe Item do
     end
   end
   describe 'class methods' do
-    it '.generate_id' do
-      expect(Item.generate_id).to eq(1)
-
-      item_1 = Item.create(id: Item.generate_id, name: 'AnItem', description: 'Good Item', unit_price: 12345, image_url: 'anything', merchant_id: 123, created_at: '2018-06-27', updated_at: '2018-06-29')
-
-      expect(Item.generate_id).to eq(2)
-    end
     it 'can count total items' do
       item_1 = Item.create(id: 1235, name: 'AnItem', description: 'Good Item', unit_price: 1000, image_url: 'anything', merchant_id: 12344105, created_at: '2001-06-27', updated_at: '2002-06-28')
       item_2 = Item.create(id: 1236, name: 'AnotherItem', description: 'Good Item', unit_price: 2000, image_url: 'anything', merchant_id: 12344105, created_at: '2018-06-27', updated_at: '2018-06-28')

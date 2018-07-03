@@ -11,26 +11,32 @@
   z-index: 9999;
   padding-left: 20%;
   padding-right: 20%;
-  border-bottom: 1px solid silver;
+  border-bottom: 1px solid #E8E8E8;
 }
 
 .invoice-show-table {
-  border-top: 1px solid silver;
+  border-top: 1px solid #E8E8E8;
   display: flex;
   flex-direction: row;
   align-items: center;
   z-index: 9999;
   padding-left: 20%;
   padding-right: 20%;
-  border-bottom: 1px solid silver;
+  border-bottom: 1px solid #E8E8E8;
 }
 
 .invoices_table tr:nth-child(even), .merchants_table tr:nth-child(even) {
-  background-color: silver;
+  background-color: #E8E8E8;
 }
 
 .invoices_table tr:nth-child(odd), .merchants_table tr:nth-child(odd) {
   background-color: whitesmoke;
+}
+
+.merchants_table tr:hover, .invoices_table tr:hover {
+  color: white;
+  box-shadow: 0px 1px 1px rgba( 15, 1, 0, 0.1 );
+  transform: rotateX(1deg);
 }
 
 table {
@@ -50,5 +56,3 @@ table tr .invoice-th {
 tr th:nth-child(2) {
   width: 50%;
 }
-
-/* style= "width: 50%;" */
