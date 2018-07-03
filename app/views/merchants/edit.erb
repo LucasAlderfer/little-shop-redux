@@ -26,7 +26,7 @@
     <form action="/merchants/<%= @merchant.id %>" method='POST'>
     <input type='hidden' name='_method' value='PUT' />
       <label for="fname">Name</label>
-      <input type='text' name='merchant[name]' placeholder=<%= @merchant.name %> value='update merchant'>
+      <input type='text' name='merchant[name]' value=<%= @merchant.name %>>
       <div class="form-align-buttons">
         <a href="/merchants/<%= @merchant.id %>" class='create_link'>cancel</a>
         <input type='submit' value='update merchant' class='create_link'/>
