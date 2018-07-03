@@ -5,13 +5,14 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="/main.css">
   <link href="https://fonts.googleapis.com/css?family=Comfortaa|Didact+Gothic|Monoton" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 </head>
 <body></body>
   <div class="header">
     <header>
       <div class="navcontainer">
         <nav class="fixednav">
-          <div class="leftnav"><a href="#">LittleSHOP</a><img src='/little_shop_logo.png' class="shop-logo"></div>
+          <div class="leftnav"><a href="/">LittleSHOP</a><img src='/little_shop_logo.png' class="shop-logo"></div>
           <div class="rightnav"><a href="/merchants" class="hvr-pop">Merchants</a></div>
           <div class="rightnav"><a href="/items" class="hvr-pop">Items</a></div>
           <div class="rightnav"><a href="/invoices" class="hvr-pop">Invoices</a></div>
@@ -20,7 +21,9 @@
     </header>
   </div>
   <section>
-    <a href="#" class="hvr-pop"><img src='/dashboard_logo.png' class="dash-board-logo" href="#"></a>
+    <div class="dashboard hvr-pop">
+      <a href="/invoices-dashboard"><i class="fas fa-chart-pie hvr-pop"></i><span id="dashboard-label">Dashboard</span></a>
+    </div>
     <h2>INVOICES</h2>
   </section>
   <table class="invoices_table">

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
   <title>Little Shop</title>
@@ -6,6 +5,7 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="/main.css">
   <link href="https://fonts.googleapis.com/css?family=Comfortaa|Didact+Gothic|Monoton" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 </head>
 <body>
   <div class="header">
@@ -20,27 +20,21 @@
       </div>
     </header>
   </div>
-  <section>
-    <h2><%= @item.name %></h2>
-    <div class="single_merchant_button">
-      <a href="/items/<%= @item.id %>/edit" class="create_link">edit</a>
-      <form action="/items/<%= @item.id %>" method='POST' class="form_reset">
-        <input type='hidden' name='_method' value='DELETE'>
-        <input type='submit' value='delete' class="create_link"/>
-      </form>
-    </div>
-  </section>
-  <div class="single-item-container">
-    <figure>
-      <h2><%= @item.merchant.name %></h2>
-      <img src='<%= @item.image_url %>' class="individual-item"/>
-    </figure>
-    <article>
-      <h2><%= @item.name %></h2>
-      <h3>Price:</h3>
-      <p><%= @item.unit_price %></p>
-      <h3>About this item:</h3>
-      <p><%= @item.description %></p>
+  <div class="index-page-container">
+    <a href="/merchants" class="reset-link" id="merchant-index-link">
+    <article class="index-page hvr-pop" >
+      <i class="fas fa-store-alt"></i>
+      <h2>Merchant Index</h2>
+    </article>
+    <a href="/items" class="reset-link" id="item-index-link">
+    <article class="index-page hvr-pop">
+      <i class="fas fa-box-open"></i>
+      <h2>Item Index</h2>
+    </article>
+    <a href="/invoices" class="reset-link" id="invoices-index-link">
+    <article class="index-page hvr-pop">
+      <i class="fas fa-file-invoice"></i>
+      <h2>Invoice Index</h2>
     </article>
   </div>
   <footer>

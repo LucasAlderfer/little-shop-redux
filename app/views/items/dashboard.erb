@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Little Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/itemdashboard.css">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa|Didact+Gothic|Monoton" rel="stylesheet">
+</head>
+<body>
+  <div class="header">
+    <header>
+      <div class="navcontainer">
+        <nav class="fixednav">
+          <div class="leftnav"><a href="#">LittleSHOP</a><img src='/little_shop_logo.png' class="shop-logo"></div>
+          <div class="rightnav"><a href="/merchants" class="hvr-pop">Merchants</a></div>
+          <div class="rightnav"><a href="/items" class="hvr-pop">Items</a></div>
+          <div class="rightnav"><a href="/invoices" class="hvr-pop">Invoices</a></div>
+        </nav>
+      </div>
+    </header>
+  </div>
+  <section>
+    <h2>Items Dashboard</h2>
+  </section>
+  <main>
+    <div class='item-dashboard-container'>
+      <h3>Total Item Count</h3>
+      <div class='item-dash-content' id='item-count'><%= @item_count %></div>
+    </div>
+    <div class='item-dashboard-container'>
+      <h3>Avg Price Per Item</h3>
+      <div class='item-dash-content' id='item-avg-price'>$<%= (@item_avg_price/100).round(2) %></div>
+    </div>
+    <div class='item-dashboard-container'>
+      <h3 id='item-age-container-header'>Item by Age</h3>
+        <div class='item-age-header'>Newest</div>
+        <div class='item-age-content' id='new-item'>
+          <div>Item: </div>
+          <a href="/items/<%= @newest_item.id %>"><%= @newest_item.name %></a>
+        </div>
+        <div class='item-age-header'>Oldest</div>
+        <div class='item-age-content' id='old-item'>
+          <div>Item: </div>
+          <a href="/items/<%= @oldest_item.id %>">Item: <%= @oldest_item.name %></a>
+        </div>
+    </div>
+  </main>
+  <footer>
+    <p>Created by Keegan, JP, and Lucas<p>
+  </footer>
+</body>
+</html>

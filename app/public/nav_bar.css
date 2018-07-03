@@ -1,0 +1,47 @@
+.shop-logo {
+  height: auto;
+  width: auto;
+  max-height: 50px;
+  max-width: 50px;
+}
+
+.dash-board-logo {
+  height: auto;
+  width: auto;
+  max-height: 50px;
+  max-width: 50px;
+  position: absolute;
+  margin-left: 40%;
+  align-items: right;
+}
+
+.fixednav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 6em;
+  background-color: #6A959D;
+}
+
+.leftnav {
+  font-family: 'Comfortaa', cursive;
+  font-weight: 900;
+  font-size: 2em;
+  flex-grow: 1;
+  vertical-align: middle;
+}
+
+.leftnav a {
+  color: #FFD3AA;
+  text-decoration: none;
+}
+
+.rightnav a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.6em;
+}

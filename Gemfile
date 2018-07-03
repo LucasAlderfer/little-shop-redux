@@ -5,6 +5,7 @@ gem 'pg'
 gem 'sinatra', require: 'sinatra/base'
 gem 'sinatra-activerecord'
 gem 'will_paginate'
+gem 'money'
 
 group :development, :test do
   gem 'nyan-cat-formatter'

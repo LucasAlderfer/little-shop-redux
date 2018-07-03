@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>Little Shop</title>
@@ -5,13 +6,14 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="/main.css">
   <link href="https://fonts.googleapis.com/css?family=Comfortaa|Didact+Gothic|Monoton" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 </head>
 <body>
   <div class="header">
     <header>
       <div class="navcontainer">
         <nav class="fixednav">
-          <div class="leftnav"><a href="#">LittleSHOP</a><img src='/little_shop_logo.png' class="shop-logo"></div>
+          <div class="leftnav"><a href="/">LittleSHOP</a><img src='/little_shop_logo.png' class="shop-logo"></div>
           <div class="rightnav"><a href="/merchants" class="hvr-pop">Merchants</a></div>
           <div class="rightnav"><a href="/items" class="hvr-pop">Items</a></div>
           <div class="rightnav"><a href="/invoices" class="hvr-pop">Invoices</a></div>
@@ -20,16 +22,19 @@
     </header>
   </div>
   <section>
-    <a href="#" class="hvr-pop"><img src='/dashboard_logo.png' class="dash-board-logo" href="#"></a>
+    <div class="dashboard hvr-pop">
+      <a href="/items-dashboard"><i class="fas fa-chart-pie hvr-pop"></i><span>Dashboard</span></a>
+    </div>
     <h2>ITEMS</h2>
     <a href='/items/new' class="create_link">Create A New Item</a>
   </section>
   <main>
     <% @items.each do |item| %>
+    <a href="items/<%= item.id %>" class="reset-link">
     <article class="item-container">
           <img src='<%= item.image_url %>'/>
-          <p class="item-text"><a href="/items/<%= item.id %>" class="hvr-pop"><%= item.name %></a></p>
-          <p class="item-text"><strong>Price:</strong> <%= item.unit_price %></p>
+          <p class="item-text"> <%= item.name %></p>
+          <p class="item-text"><strong>Price:</strong> <%= item.unit_price %></p></a>
       </article>
       <% end %>
   </main>

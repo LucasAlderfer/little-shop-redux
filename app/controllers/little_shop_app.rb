@@ -6,6 +6,10 @@ class LittleShopApp < Sinatra::Base
     register WillPaginate::Sinatra
   end
 
+  get '/' do
+    erb :'index'
+  end
+
   get '/merchants' do
     @merchants = Merchant.paginate(:page => params[:page], :per_page => 30)
     erb :'merchants/index'
@@ -46,6 +50,13 @@ class LittleShopApp < Sinatra::Base
     redirect '/merchants'
   end
 
+  get '/merchants-dashboard' do
+    @merchants = Merchant.paginate(:page => params[:page], :per_page => 28)
+    @most_items = Merchant.most_items
+    @highest_price = Merchant.highest_priced_item
+    erb :'merchants/dashboard'
+  end
+
   get '/items' do
     @items = Item.paginate(:page => params[:page], :per_page => 40)
     erb :'items/index'
@@ -65,7 +76,7 @@ class LittleShopApp < Sinatra::Base
                   id: item_id,
                   name: params[:item][:name],
                   description: params[:item][:description],
-                  unit_price: params[:item][:description],
+                  unit_price: params[:item][:unit_price],
                   image_url: params[:item][:image_url],
                   merchant_id: params[:item][:merchant_id],
                   created_at: current_day,
@@ -73,6 +84,14 @@ class LittleShopApp < Sinatra::Base
                 )
 
     redirect "/items/#{item_id}"
+  end
+
+  get '/items-dashboard' do
+    @item_count = Item.total_count
+    @item_avg_price = Item.average_price
+    @newest_item = Item.newest
+    @oldest_item = Item.oldest
+    erb :'items/dashboard'
   end
 
   get '/items/:id' do
@@ -125,5 +144,14 @@ class LittleShopApp < Sinatra::Base
   put '/invoices/:id/edit' do
     Invoice.update(params[:id].to_i, params[:invoice])
     redirect "/invoices/#{params[:id]}"
+  end
+
+  get '/invoices-dashboard' do
+    @invoices = Invoice.all
+    @high_unit_price = Invoice.highest_unit_price
+    @low_unit_price = Invoice.lowest_unit_price
+    @high_quantity = Invoice.highest_quantity
+    @low_quantity = Invoice.lowest_quantity
+    erb :'/invoices/dashboard'
   end
 end

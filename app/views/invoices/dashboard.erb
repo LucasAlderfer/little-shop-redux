@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Little Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/invoice_dashboard.css">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa|Didact+Gothic|Monoton" rel="stylesheet">
+</head>
+<body>
+  <div class="header">
+    <header>
+      <div class="navcontainer">
+        <nav class="fixednav">
+          <div class="leftnav"><a href="#">LittleSHOP</a><img src='/little_shop_logo.png' class="shop-logo"></div>
+          <div class="rightnav"><a href="/merchants" class="hvr-pop">Merchants</a></div>
+          <div class="rightnav"><a href="/items" class="hvr-pop">Items</a></div>
+          <div class="rightnav"><a href="/invoices" class="hvr-pop">Invoices</a></div>
+        </nav>
+      </div>
+    </header>
+  </div>
+  <section>
+    <h2>INVOICES DASHBOARD</h2>
+  </section>
+  <main>
+    <div class='invoice_dashboard_box'>
+        <p class='dashboard_box_header'>Status Percentages</p>
+        <p>Pending: <%= @invoices.status_percentages['pending'] %></p>
+        <p>Shipped: <%= @invoices.status_percentages['shipped'] %></p>
+        <p>Returned: <%= @invoices.status_percentages['returned'] %></p>
+    </div>
+    <div class='invoice_dashboard_box'>
+        <p class='dashboard_box_header'>Unit Prices</p>
+        <p class='dashboard_box_sub_header'>Highest</p>
+        <p>Invoice: <a href="/invoices/<%= @high_unit_price %>"><%= @high_unit_price %></a></p>
+        <p class='dashboard_box_sub_header'>Lowest</p>
+        <p>Invoice: <a href="/invoices/<%= @low_unit_price %>"><%= @low_unit_price %></a></p>
+    </div>
+    <div class='invoice_dashboard_box'>
+        <p class='dashboard_box_header'>Quantity</p>
+        <p class='dashboard_box_sub_header'>Highest</p>
+        <p>Invoice: <a href="/invoices/<%= @high_quantity %>"><%= @high_quantity %></a></p>
+        <p class='dashboard_box_sub_header'>Lowest</p>
+        <p>Invoice: <a href="/invoices/<%= @low_quantity %>"><%= @low_quantity %></a></p>
+    </div>
+  </main>
+  <footer>
+    <p>Created by Keegan, JP, and Lucas<p>
+  </footer>
+</body>
+</html>
